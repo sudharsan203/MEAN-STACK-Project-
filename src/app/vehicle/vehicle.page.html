@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>vehicle</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <p><b>Tata Motors</b></p>
+<ion-grid>
+  <ion-row>
+    <ion-segment (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="camera">Light Duty
+      </ion-segment-button>
+      <ion-segment-button value="bookmark">Medium Duty
+      </ion-segment-button>
+      <ion-segment-button value="bookmark">Heavy Duty
+      </ion-segment-button>
+    </ion-segment>
+  </ion-row>
+  <ion-row *ngFor="let vehicle of vehicles">
+    <ion-col size="6">
+      <ion-card (click)="gotoVehicleproduct()">
+        <img src="/assets/slide1.jpg">
+        <p>{{vehicle.name}}</p>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+</ion-grid>
+</ion-content>

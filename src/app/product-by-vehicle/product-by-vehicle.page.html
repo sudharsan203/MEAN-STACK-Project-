@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>product-by-vehicle</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <p><b>Tata LPT 1613</b></p>
+  <ion-card (click)="gotoProductdetails()" *ngFor="let product of products">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4">
+          <img style="margin-top:50% ;" src="/assets/slide1.jpg">
+        </ion-col>
+        <ion-col size="8">
+          <ion-row>
+            <div>
+              <p><b>{{product.name}}</b></p>
+              <p>{{product.price}}</p>
+            </div>
+           
+          </ion-row>
+          <ion-row>
+            <img style="height: 20px; width: 100px; margin-left: 16px;" src="/assets/flashscreen.png">
+          </ion-row>
+          <ion-row>
+            <div>
+            <p>KB Part no: {{product.kb_part_no}}</p>
+            <p>AM Part no: {{product.am_part_no}}</p>
+            <p>OEM Part no: {{product.oem_part_no}}</p>
+            </div>
+            
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-card>
+</ion-content>

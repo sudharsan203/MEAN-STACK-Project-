@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>product_details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid *ngFor="let product of products">
+    <ion-row>
+      <img src="/assets/flashscreen.png">
+    </ion-row>
+    <ion-row>
+      <div>
+        <ion-row>
+          <div>
+             <h5 style="margin-left: 10px;"><b>{{product.name}}</b></h5>
+               <p>{{product.price}}</p>
+               <img style="height: 20px; width: 100px; margin-left: 10px;" src="/assets/flashscreen.png">
+          
+                   <div style="color:gray">
+                        <p>Vehicle Model: {{product.v_id}}</p>
+                        <p>KB Part No: {{product.kb_part_no}}</p>
+                        <p>AM Part No:{{product.am_part_no}}</p>
+                        <p>OEM Part No</p>
+                    </div>
+           </div>
+        </ion-row>
+        <ion-row>
+          <div style="margin-left: 0px;">
+              <ion-row>
+                  <p><b>RFRONT(FR) & REAR(RR):</b>{{product.fr_rr}}</p>
+              </ion-row>
+              <ion-row>
+                  <p><b>Function:</b>{{product.functions}}</p>
+              </ion-row>
+              <ion-row>
+                  <p><b>Features:</b>{{product.features}}</p>
+              </ion-row>
+        </div>
+      </ion-row>
+      
+      <a href="">see less</a>
+
+      <ion-row>
+        <p><b>Installation Location:</b>{{product.install_location}}</p>
+      </ion-row>
+      </div> 
+    </ion-row>
+    
+
+  </ion-grid >
+
+
+</ion-content>

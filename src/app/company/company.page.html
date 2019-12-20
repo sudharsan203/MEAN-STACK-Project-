@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>company</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <p><b>Vehicle Make</b></p>
+<ion-grid>
+  <ion-row *ngFor="let comp of company">
+    <ion-col size="6">
+      <ion-card (click)="gotoVehicle()">
+        <img src="/assets/flashscreen.png">
+        <p>{{comp.name}}</p>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>

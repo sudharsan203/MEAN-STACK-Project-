@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>all_products</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <p><b>All Products</b></p>
+  <ion-card (click)="gotoProductdetails()" *ngFor="let product of products">
+    <h6>{{product.name}}</h6>
+    <p>KB Part No : {{product.kb_part_no}}</p>
+  </ion-card>
+ 
+</ion-content>

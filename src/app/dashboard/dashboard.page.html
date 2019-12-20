@@ -1,0 +1,97 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>dashboard</ion-title>
+  </ion-toolbar>
+ 
+</ion-header>
+
+<ion-content>
+  <ion-slides pager>
+    <ion-slide >
+      <img src="assets/slide1.jpg">
+    </ion-slide>
+    <ion-slide >
+      <img src="assets/slide2.jpg">
+    </ion-slide>
+    <ion-slide >
+      <img src="assets/slide3.jpg">
+    </ion-slide>
+  </ion-slides>
+  <ion-searchbar (ionInput)="getItems($event)" placeholder="product,vehicle model,part no,company"></ion-searchbar>
+  <div>
+    <p>
+      <b>
+      Hi Rohit,<br>
+      How can we help you?
+    </b>
+    </p>
+  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col size=4>
+        <ion-card (click)="gotoProducts()" >
+          <p>Products</p>
+          <img src="assets/products icon.svg">
+        </ion-card>
+      </ion-col >
+      <ion-col size=4>
+        <ion-card (click)="gotoPriccelist()">
+          <p>Price List</p>
+          <img src="assets/price list icon.svg">
+        </ion-card>
+      </ion-col>
+      <ion-col size=4>
+        <ion-card>
+          <p>Distributors</p>
+          <img src="assets/distributors icon.svg">
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size=4>
+        <ion-card>
+          <p>Service Center</p>
+          <img src="assets/search.svg">
+        </ion-card>
+      </ion-col>
+      <ion-col size=4>
+        <ion-card>
+          <p>Maintanance & Troubleshooting</p>
+          <img src="assets/maintenance & troubleshooting icon.svg">
+        </ion-card>
+      </ion-col>
+      <ion-col size=4>
+        <ion-card >
+          <p>Contact Us</p>
+          <img src="assets/contact us icon.svg">
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <p>
+    <b>What's new</b>
+  </p>
+  <ion-card id="news-card">
+    <ion-grid>
+      <ion-row>
+        <a href="">Stratan</a>
+      </ion-row>
+
+    <ion-row>
+      <a href="">Ohio</a>
+    </ion-row>
+    
+    <ion-row>
+      <a href="">Dayton</a>
+    </ion-row>
+  </ion-grid>
+  
+  </ion-card>
+  <p>
+    <b>Want to know more?</b><br/>
+  </p>
+  <h6 style="margin-left: 15px;">Visit <a href="">www.knorr-bremsecvs.com</a></h6>
+
+</ion-content>
+

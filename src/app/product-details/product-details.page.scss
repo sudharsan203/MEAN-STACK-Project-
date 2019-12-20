@@ -1,0 +1,25 @@
+ion-content
+{
+    --background: rgb(241, 240, 240);
+}
+img{
+    height: 250px;
+    width: 200px;
+    margin-left: 23%;
+    margin-top:20px;
+}
+p{
+    margin-left: 10px;
+    height: 5px;
+}
+ion-row
+{
+    margin-left: 10px;
+    ion-row
+    {
+        margin-left: 0px;
+    }
+}
+a{
+    margin-left: 10px;
+}
