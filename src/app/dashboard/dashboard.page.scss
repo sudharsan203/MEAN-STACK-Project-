@@ -1,6 +1,6 @@
 img{
     width: 100%;
-    height: auto;
+    height: fit-content;
 }
 ion-toolbar
 {
@@ -22,6 +22,8 @@ ion-content
 p{
     padding-left: 15px;
     font-size: 22px;
+    
+ 
 }
 ion-card
 {
@@ -29,12 +31,13 @@ ion-card
     height: 80px;
     width: 105px;
     --background:white;
-    margin-left: -0.5px;
+    font: left;
     text-align: center  ;
     border-radius: 10px;
 }
 ion-grid
 {
+    
     padding: 0px;
 }
 #news-card

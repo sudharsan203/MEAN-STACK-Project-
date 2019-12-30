@@ -1,54 +1,77 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>product_details</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="dashboard"></ion-back-button>
+  </ion-buttons>
+    <ion-title><img src="assets/top.PNG" id="img2"></ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-grid *ngFor="let product of products">
     <ion-row>
-      <img src="/assets/flashscreen.png">
+      <img src="/assets/air.PNG">
     </ion-row>
     <ion-row>
       <div>
         <ion-row>
           <div>
-             <h5 style="margin-left: 10px;"><b>{{product.name}}</b></h5>
-               <p>{{product.price}}</p>
-               <img style="height: 20px; width: 100px; margin-left: 10px;" src="/assets/flashscreen.png">
+             <h5 style="margin-left: 10px;"><b>{{product.p_name}}</b>
+              <button style="display: block;" ion-button icon-only>
+                <ion-icon name="star-outline"></ion-icon>
+            </button>
+              
+          </h5>
+               <p>{{product.p_price}}</p>
+               <img id="img3" src="/assets/ashok1.jpg" >
           
                    <div style="color:gray">
-                        <p>Vehicle Model: {{product.v_id}}</p>
-                        <p>KB Part No: {{product.kb_part_no}}</p>
-                        <p>AM Part No:{{product.am_part_no}}</p>
-                        <p>OEM Part No</p>
+                        <p>Vehicle Model: {{product.p_id}}</p>
+                        <p>KB Part No: {{product.p_kb_part_no}}</p>
+                        <p>AM Part No: {{product.p_am_part_no}}</p>
+                        <p>OEM Part No: {{product.p_kb_part_no}}</p>
                     </div>
            </div>
         </ion-row>
         <ion-row>
           <div style="margin-left: 0px;">
               <ion-row>
-                  <p><b>RFRONT(FR) & REAR(RR):</b>{{product.fr_rr}}</p>
+                  <p><b>FRONT(FR) & REAR(RR):</b> <br/>{{product.p_fr_rr}}</p>
               </ion-row>
               <ion-row>
-                  <p><b>Function:</b>{{product.functions}}</p>
+                  <p><b>Function:</b> <br/>{{product.p_function}}</p>
               </ion-row>
               <ion-row>
-                  <p><b>Features:</b>{{product.features}}</p>
+                  <p><b>Features:</b> <br/>{{product.p_feature}}</p>
               </ion-row>
         </div>
       </ion-row>
-      
-      <a href="">see less</a>
+      <br/><br/>
 
       <ion-row>
-        <p><b>Installation Location:</b>{{product.install_location}}</p>
+        <p><b>Installation Location:</b> <br/>{{product.installation}}</p>
       </ion-row>
       </div> 
     </ion-row>
-    
+    <ion-item-divider>
+    </ion-item-divider>
+    <br/>
+    <ion-card>
+      <ion-item href="/all-products" class="activated">
+        <ion-icon name="ios-arrow-forward" slot="end"></ion-icon>
+        <ion-label>Repain Kits</ion-label>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item href="/company" class="activated">
+        <ion-icon name="ios-arrow-forward" slot="end"></ion-icon>
+        <ion-label>Service Manual</ion-label>
+      </ion-item>
+    </ion-card>
 
   </ion-grid >
-
-
+<br/><br/>
+  <button class = "button button-full customBtn">
+    Enquire
+ </button>
 </ion-content>

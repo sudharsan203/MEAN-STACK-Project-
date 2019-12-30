@@ -11,7 +11,7 @@ import { NavController } from '@ionic/angular';
 export class AllProductsPage implements OnInit {
   products:any;
   constructor(private route: Router,public navCtrl: NavController, public restProvider: ServiceService) {
-    this. getAllProducts();
+    this.getAllProducts();
    }
 
   ngOnInit() {

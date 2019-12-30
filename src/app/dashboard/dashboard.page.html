@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>dashboard</ion-title>
+    <ion-title><img src="assets/top.PNG"></ion-title>
   </ion-toolbar>
  
 </ion-header>
@@ -17,11 +17,11 @@
       <img src="assets/slide3.jpg">
     </ion-slide>
   </ion-slides>
-  <ion-searchbar (ionInput)="getItems($event)" placeholder="product,vehicle model,part no,company"></ion-searchbar>
+  <ion-searchbar placeholder="product,vehicle model,part no,company"></ion-searchbar>
   <div>
     <p>
       <b>
-      Hi Rohit,<br>
+      Hi KHASH,<br>
       How can we help you?
     </b>
     </p>
@@ -30,19 +30,19 @@
     <ion-row>
       <ion-col size=4>
         <ion-card (click)="gotoProducts()" >
-          <p>Products</p>
+          <p style="float:left ">Products</p>
           <img src="assets/products icon.svg">
         </ion-card>
       </ion-col >
       <ion-col size=4>
         <ion-card (click)="gotoPriccelist()">
-          <p>Price List</p>
+          <p style="float:left ">Price List</p>
           <img src="assets/price list icon.svg">
         </ion-card>
       </ion-col>
       <ion-col size=4>
         <ion-card>
-          <p>Distributors</p>
+          <p style="float:left ">Distributors</p>
           <img src="assets/distributors icon.svg">
         </ion-card>
       </ion-col>
@@ -50,19 +50,19 @@
     <ion-row>
       <ion-col size=4>
         <ion-card>
-          <p>Service Center</p>
-          <img src="assets/search.svg">
+          <p style="float: right; ">Service  Center</p>
+          <img src="assets/distributors icon.svg">
         </ion-card>
       </ion-col>
       <ion-col size=4>
         <ion-card>
-          <p>Maintanance & Troubleshooting</p>
+          <p style="float: right;">Maintanance & Troubleshooting</p>
           <img src="assets/maintenance & troubleshooting icon.svg">
         </ion-card>
       </ion-col>
       <ion-col size=4>
         <ion-card >
-          <p>Contact Us</p>
+          <p style="float:left ">Contact Us</p>
           <img src="assets/contact us icon.svg">
         </ion-card>
       </ion-col>

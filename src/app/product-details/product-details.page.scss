@@ -1,11 +1,13 @@
 ion-content
 {
-    --background: rgb(241, 240, 240);
+    --background: rgb(255,255,255);
+    white-space: pre-wrap
 }
 img{
-    height: 250px;
-    width: 200px;
-    margin-left: 23%;
+    height: 225px;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
     margin-top:20px;
 }
 p{
@@ -18,8 +20,30 @@ ion-row
     ion-row
     {
         margin-left: 0px;
+        
     }
 }
 a{
     margin-left: 10px;
+}
+#img2{
+    widows: 70%;
+    height: fit-content;
+    display: block;
+    margin: 0 auto;
+}
+#img3{
+    width: 170px;
+    height: 30px;
+    max-width: 100%;
+    margin-left: 5px;
+   
+}
+.button.customBtn{
+    width:100%;
+    background-color: #264599;
+    height: 45px;
+    color: white;
+    position: absolute;
+
 }

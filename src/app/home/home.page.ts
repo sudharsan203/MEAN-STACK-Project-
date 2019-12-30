@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core'
+import {AuthenticationService, TokenPayload} from '../authentication.service'
+import {Router} from '@angular/router'
 
 @Component({
   selector: 'app-home',
@@ -8,18 +8,36 @@ import { Router } from '@angular/router';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  splash = true;
-  //tabBarElement : any;
-  constructor(private route: Router) { }
-
-  dashboard() {
-    this.route.navigate(['/dashboard']);
+  splash =true;
+  credentials : TokenPayload = {
+    _id:'',
+    first_name:'',
+    last_name:'',
+    email:'',
+    password:'',
+    type:''
   }
-  ionViewDidLoad() {
-    setTimeout(() => this.splash = false, 1000);
+    constructor(private route:Router,
+      public auth: AuthenticationService
+      ) {}
+      
+      
+    dashboard(){
+     this.auth.register(this.credentials).subscribe(
+       () =>{
+         this.route.navigateByUrl('/dashboard')
+       },
+       err =>{
+         console.error('error rrrr',err)
+       }
+     )
+    }
+    ionViewDidLoad(){
+      setTimeout(()=>
+        this.splash = false,1000);
+    }
+    ngOnInit(){
+      this.ionViewDidLoad();
+    }
+    
   }
-  ngOnInit()
-  {
-    this.ionViewDidLoad();
-  }
-}

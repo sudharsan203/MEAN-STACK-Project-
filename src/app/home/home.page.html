@@ -7,37 +7,43 @@
 </div>
 
 <ion-content>
- <form  (ngSubmit)="dashboard()" method="post" id="container">
-  <div padding=20px;>
-     <div>
-        <ion-label >Name</ion-label><br/>
-        <ion-input  type="text" name="name"></ion-input>
-    </div>
-   
-   
-      <div>
-        <ion-label >Phone Number</ion-label><br/>
-        <ion-input  type="text" name="phone_no"></ion-input>
-      </div>  
-  
-  
-      <div>
-        <ion-label >Email</ion-label><br/>
-        <ion-input type="email" name="email"></ion-input>
-      </div>
-    
+  <form (ngSubmit)="dashboard()" method="post" id="container">
+    <div padding=20px;>
+        <div>
+            <ion-label>First Name</ion-label><br/>
+            <ion-input type="text" name="first_name" [(ngModel)]="credentials.first_name"></ion-input>
+        </div>
+        <div>
+            <ion-label>Last Name</ion-label><br/>
+            <ion-input type="text" name="last_name" [(ngModel)]="credentials.last_name"></ion-input>
+        </div>
 
-      <div>
-        <ion-label >User Type</ion-label> <br/>
-        <ion-select placeholder="Select One">  
-          <ion-select-option value="a">A</ion-select-option>  
-          <ion-select-option value="b">B</ion-select-option>  
-        </ion-select>  
-      </div>
-    
-    <ion-button color="white" (click)="dashboard()" style="color: rgb(6, 6, 117);">Skip</ion-button>
-    <ion-button type="submit" color="primary">Let's Start</ion-button>
-  </div>
-  </form>
+        <div>
+            <ion-label>Password</ion-label><br/>
+            <ion-input type="text" name="password" [(ngModel)]="credentials.password"></ion-input>
+        </div>
+
+
+        <div>
+            <ion-label>Email</ion-label><br/>
+            <ion-input type="email" name="email" [(ngModel)]="credentials.email"></ion-input>
+        </div>
+        <div>
+            <ion-label>UserType(db)</ion-label><br/>
+            <ion-input type="text" name="type" [(ngModel)]="credentials.type"></ion-input>
+        </div>
+
+        <div>
+            <ion-label>User Type</ion-label> <br/>
+            <ion-select placeholder="Select One">
+                <ion-select-option value="a">A</ion-select-option>
+                <ion-select-option value="b">B</ion-select-option>
+            </ion-select>
+        </div>
+
+        <ion-button color="white" (click)="dashboard()" style="color: rgb(6, 6, 117);">Skip</ion-button>
+        <ion-button type="submit" color="primary">Let's Start</ion-button>
+    </div>
+</form>
   
 </ion-content>

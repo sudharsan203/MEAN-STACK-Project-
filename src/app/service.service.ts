@@ -5,19 +5,31 @@ import { resolve } from 'url';
   providedIn: 'root'
 })
 export class ServiceService {
-  apiurl='http://localhost:50844/api';
+  apiurl='http://localhost:3000/product_init';
   constructor(public http:HttpClient) {
-    console.log('Hello Rest Provider');
+    this.getSearch();
     this.getAllProducts();
     this.getCompany();
     this.getVehicle();
     this.getProductByVehicle();
     this.getProductDetails();
    }
+   getSearch()
+   {
+    return new Promise(resolve=>{
+      this.http.get(this.apiurl).subscribe(data=>{
+        resolve(data);
+      },err=>{
+        console.log(err);
+
+      });
+     });
+   }
+
    getAllProducts()
    {
     return new Promise(resolve=>{
-      this.http.get(this.apiurl+'/products').subscribe(data=>{
+      this.http.get(this.apiurl).subscribe(data=>{
         resolve(data);
       },err=>{
         console.log(err);
