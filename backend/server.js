@@ -11,7 +11,7 @@ app.use(bodyParser.json())
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }))
 
-const MONGODB_URI = 'mongodb://localhost:27017/reg'
+const MONGODB_URI = 'mongodb://localhost:27017/test'
 mongoose
     .connect(MONGODB_URI, { useNewUrlParser: true })
     .then(() => console.log("mongodb connected"))

@@ -11,14 +11,14 @@ users.use(cors())
 process.env.SECRET_KEY = 'secret'
 
 // read
-users.get('/users',(req,res)=>{
-    User.collection.find({}).toArray((err, documents)=>{
-        if(err)
+users.get('/users', (req, res) => {
+    User.collection.find({}).toArray((err, documents) => {
+        if (err)
             console.log(err);
-        else{
+        else {
             // res.json(documents);
             // res.status(200).json('successfullly got!!!')
-            res.json({ status: 200, message: 'successfullly got!!!', documents});
+            res.json({ status: 200, message: 'successfullly got!!!', documents });
         }
     });
 });
@@ -27,25 +27,25 @@ users.post('/search', (req, res) => {
     const userData = {
         name: req.body.name,
     }
-    
-        var query={};
-        query.name=new RegExp(req.body.name, 'i');
-        
-        //console.log(req.body.word);
-  //      console.log("1");
-        User.find(query, function (err, words) {
-                if (err) return res.status(400).send({msg:" error during search DB"});
-                console.log( words);
-                return res.status(200).send(words);
-         
-        })    ;
-        
-   
+
+    var query = {};
+    query.name = new RegExp(req.body.name, 'i');
+
+    //console.log(req.body.word);
+    //      console.log("1");
+    User.find(query, function(err, words) {
+        if (err) return res.status(400).send({ msg: " error during search DB" });
+        console.log(words);
+        return res.status(200).send(words);
+
+    });
+
+
 });
 
 
 
-users.post('/register', (req, res) => {   
+users.post('/register', (req, res) => {
     const today = new Date();
     const userData = {
         first_name: req.body.first_name,
@@ -85,50 +85,50 @@ users.post('/register', (req, res) => {
 /////////////////////////////////////////////////////////////////////
 
 // read
-users.get('/product_init',(req,res)=>{
- //   const collection = "product_init";
-    User.collection.find({}).toArray((err, documents)=>{
-        if(err)
+users.get('/product_init', (req, res) => {
+    //   const collection = "product_init";
+    User.collection.find({}).toArray((err, documents) => {
+        if (err)
             console.log(err);
-        else{
+        else {
             // res.json(documents);
             // res.status(200).json('successfullly got!!!')
-            res.json({ status: 200, message: 'successfullly got!!!', documents});
+            res.json({ status: 200, message: 'successfullly got!!!', documents });
         }
     });
 });
 
 //////////////////////////////////////////////////////////////////
 
-users.post('/login', (req,res) => {
+users.post('/login', (req, res) => {
     User.findOne({
-        email: req.body.email
-        
-    })
-    .then(user => {
-        if(user) {
+            email: req.body.email
 
-            if(bcrypt.compareSync(req.body.password,user.password)){
-                const payload = {
-                    _id: user._id,
-                    first_name: user.first_name,
-                    last_name: users.last_name,
-                    email: user.email
+        })
+        .then(user => {
+            if (user) {
+
+                if (bcrypt.compareSync(req.body.password, user.password)) {
+                    const payload = {
+                        _id: user._id,
+                        first_name: user.first_name,
+                        last_name: users.last_name,
+                        email: user.email
+                    }
+                    let token = jwt.sign(payload, process.env.SECRET_KEY, {
+                        expiresIn: 1440
+                    })
+                    Response.json({ token: token })
+                } else {
+                    res.json({ error: "User does not exist" })
                 }
-                let token = jwt.sign(payload, process.env.SECRET_KEY, {
-                    expiresIn: 1440
-                })
-                Response.json({token : token})
-            }else{
-                res.json({error: "User does not exist"})
+            } else {
+                res.json({ error: "User doesnot exist" })
             }
-        }else{
-            res.json({error: "User doesnot exist"})
-        }
-    })
-    .catch(err => {
-        res.send('error :' +err)
-    })
+        })
+        .catch(err => {
+            res.send('error :' + err)
+        })
 })
 
 module.exports = users

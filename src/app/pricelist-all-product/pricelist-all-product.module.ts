@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { PricelistAllProductPageRoutingModule } from './pricelist-all-product-routing.module';
 
 import { PricelistAllProductPage } from './pricelist-all-product.page';
+import {AccordionComponent} from '../accordion/accordion.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PricelistAllProductPageRoutingModule
+    PricelistAllProductPageRoutingModule,
+    
   ],
-  declarations: [PricelistAllProductPage]
+  declarations: [PricelistAllProductPage,AccordionComponent]
 })
 export class PricelistAllProductPageModule {}

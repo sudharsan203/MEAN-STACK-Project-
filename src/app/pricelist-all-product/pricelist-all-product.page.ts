@@ -1,37 +1,47 @@
+import { Component, OnInit, ViewChild, Renderer, ViewChildren, QueryList,AfterViewInit, ElementRef,Input} from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { NavController } from '@ionic/angular';
+import { ServiceService } from '../service.service';
+//import 'rxjs/add/operator/map';
+import {AccordionComponent} from '../accordion/accordion.component' 
 
-import { Component, ViewChild, OnInit, Renderer, Input } from '@angular/core';
+
 @Component({
   selector: 'app-pricelist-all-product',
   templateUrl: './pricelist-all-product.page.html',
   styleUrls: ['./pricelist-all-product.page.scss'],
+
+
 })
 export class PricelistAllProductPage implements OnInit {
+  
+  accordionExapanded = true;
+  products:any;
+    product_types:any;
+  @ViewChild('cc', {static: true}) cardContent: any;
+  @Input ('title') title:string;
 
-  accordionExapanded = false;
-  @ViewChild("cc",{static:true}) cardContent: any;
-  @Input('title') title: string;
-
-  icon: string = "arrow-forward";
-  constructor(public renderer: Renderer) { }
+    constructor(private route: Router, public restProvider: ServiceService) {
+      
+     }
 
   ngOnInit() {
-    console.log(this.cardContent.nativeElement);
-    this.renderer.setElementStyle(this.cardContent.nativeElement, "webkitTransition", "max-height 500ms, padding 500ms");
+     this.getProductTypes();
   }
-  toggleAccordion() {
-    if (this.accordionExapanded) {
-      this.renderer.setElementStyle(this.cardContent.nativeElement, "max-height", "0px");
-      this.renderer.setElementStyle(this.cardContent.nativeElement, "padding", "0px 16px");
+    
+     getProductTypes()
+     {
+       this.restProvider.getProductType()
+         .then(data=>{
+           this.product_types=data; 
 
-    } else {
-      this.renderer.setElementStyle(this.cardContent.nativeElement, "max-height", "500px");
-      this.renderer.setElementStyle(this.cardContent.nativeElement, "padding", "13px 16px");
+         });    
 
-    }
-    this.accordionExapanded = !this.accordionExapanded;
-    this.icon = this.icon == "arrow-forward" ? "arrow-down" : "arrow-forward";
+     }
 
-  }
-
+    goback()
+    {
+      this.route.navigate(['/price-list'])
+    }   
 
 }

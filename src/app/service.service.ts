@@ -66,6 +66,28 @@ export class ServiceService {
       });
      });
    }
+   getProductType()
+   {
+     return new Promise(resolve=>{
+       this.http.get(this.apiurl+'/producttypes').subscribe(data=>{
+         resolve(data);
+       },err=>{
+         console.log(err);
+ 
+       });
+      });
+   }
+   getProductsByType(name:string)
+   {
+     return new Promise(resolve=>{
+       this.http.get(this.apiurl+'/productbytypes/'+name).subscribe(data=>{
+         resolve(data);
+       },err=>{
+         console.log(err);
+ 
+       });
+      });
+   }
    getVehicle(name:String)
    {
     return new Promise(resolve=>{
