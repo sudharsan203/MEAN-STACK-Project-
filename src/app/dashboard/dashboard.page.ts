@@ -11,11 +11,12 @@ import { NavController } from '@ionic/angular';
 export class DashboardPage implements OnInit {  
   products:any;
   constructor(private route: Router,public navCtrl: NavController, public restProvider: ServiceService) {
-    this.getSearch();
+    this.getSearch(String);
    }
 
 
   ngOnInit() {
+    
   }
   gotoProducts()
   {
@@ -25,9 +26,10 @@ export class DashboardPage implements OnInit {
   {
     this.route.navigate(['/price-list']);
   }
-  getSearch()
+  getSearch(name)
   {
-     this.restProvider.getAllProducts()
+    console.log(name)
+     this.restProvider.getSearch(name)
      .then(data=>{
        this.products=data;
        console.log(this.products);

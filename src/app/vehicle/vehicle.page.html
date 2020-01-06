@@ -1,32 +1,31 @@
 <ion-header>
-  <ion-toolbar><ion-buttons slot="start">
-    <ion-back-button defaultHref="dashboard"></ion-back-button>
-</ion-buttons>
-    <ion-title>vehicle</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="dashboard"></ion-back-button>
+        </ion-buttons>
+        <ion-title><img src="assets/top.PNG" id="img2"></ion-title>
+    </ion-toolbar>
 </ion-header>
-
-<ion-content>
-  <p><b>Tata Motors</b></p>
-<ion-grid>
-  <ion-row>
-    <ion-segment (ionChange)="segmentChanged($event)">
-      <ion-segment-button value="camera">Light Duty
-      </ion-segment-button>
-      <ion-segment-button value="bookmark">Medium Duty
-      </ion-segment-button>
-      <ion-segment-button value="bookmark">Heavy Duty
-      </ion-segment-button>
-    </ion-segment>
-  </ion-row>
-  <ion-row *ngFor="let vehicle of vehicles">
-    <ion-col size="6">
-      <ion-card (click)="gotoVehicleproduct()">
-        <img src="/assets/slide1.jpg">
-        <p>{{vehicle.name}}</p>
-      </ion-card>
-    </ion-col>
-  </ion-row>
-
-</ion-grid>
+<ion-content *ngFor="let comp of company">
+    <p><b>{{comp.name}}</b></p>
+    <ion-grid>
+        <ion-row>
+            <ion-segment [(ngModel)]="duty">
+                <ion-segment-button value="Light Duty">Light Duty
+                </ion-segment-button>
+                <ion-segment-button value="Medium Duty">Medium Duty
+                </ion-segment-button>
+                <ion-segment-button value="Heavy Duty">Heavy Duty
+                </ion-segment-button>
+            </ion-segment>
+        </ion-row>
+        <ion-row>
+            <ion-col *ngFor="let vehicle of vehicles" size="6">
+                <ion-card [routerLink]="['/productByVehicle',vehicle.v_name]">
+                    <img src="assets/slide1.jpg">
+                    <p>{{vehicle.v_name}}</p>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>

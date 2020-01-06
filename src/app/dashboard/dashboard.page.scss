@@ -1,76 +1,88 @@
-img{
-    width: 100%;
-    height: fit-content;
+ion-header {
+    img {
+        margin-left: 12%;
+        margin-top: 3%;
+    }
 }
-ion-toolbar
-{
-    border-bottom: solid 1px black;
-}
-ion-title
-{
-    text-align: center;
-}
-ion-searchbar
-{
+
+ion-searchbar {
     padding: 15px;
     border-radius: 15px;
 }
-ion-content
-{
+
+ion-content {
     --background: rgb(241, 240, 240);
+    img {
+        width: 100%;
+        height: 100%;
+    }
 }
-p{
-    padding-left: 15px;
-    font-size: 22px;
-    
- 
+
+.ion-card-search {
+    width: 92%;
+    height: fit-content;
+    margin-left: 16px;
+    margin-top: -14px;
 }
-ion-card
-{
-    
+
+ion-card {
     height: 80px;
     width: 105px;
-    --background:white;
+    --background: white;
     font: left;
-    text-align: center  ;
+    text-align: center;
     border-radius: 10px;
+    img {
+        height: 40%;
+        width: 40%;
+        margin-left: 25%;
+        margin-top: 10%;
+    }
+    .p1 {
+        font-size: 14px;
+        text-align: center;
+        color: black;
+        margin-top: 10px;
+    }
 }
-ion-grid
-{
-    
+
+p {
+    padding-left: 15px;
+    font-size: 22px;
+}
+
+ion-grid {
     padding: 0px;
 }
-#news-card
-{
+
+#news-card {
     height: 300px;
     width: 90%;
     padding: 10px;
     margin-left: 15px;
 }
-#fav-pro-card
-{
+
+#fav-pro-card {
     height: 250px;
     width: 200px;
     margin-left: 15px;
-    img{
+    img {
         height: 150px;
         width: 150px;
         margin-left: 24px;
         margin-top: 15px;
     }
-    h6
-    {
+    h6 {
         margin-left: 10px;
         color: black;
     }
 }
-ion-card
-{
-    height: 100px;
-    width: 100px;
 
-    p
-    {
-        font-size: 14px;
+ion-header:hover {
+    .ion-card-search {
+        width: 0px;
+        height: 0px;
+        margin-left: 0px;
+        margin-top: 0px;
     }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import {ServiceService} from '../service.service';
 import { NavController } from '@ionic/angular';
 
@@ -10,25 +10,35 @@ import { NavController } from '@ionic/angular';
 })
 export class VehiclePage implements OnInit {
   vehicles:any;
-  constructor(private route: Router,public navCtrl: NavController, public restProvider: ServiceService) {
-    this.getVehicle();
+  company:any;
+  constructor(private route: Router,public navCtrl: NavController, public restProvider: ServiceService,public router:ActivatedRoute) {
+    //this.getVehicle(name);
+   
    }
 
   ngOnInit() {
-  }
-  gotoVehicleproduct()
-  {
-    this.route.navigate(['/product-by-vehicle']);
-  }
-
-  getVehicle()
-  {
-    
-      this.restProvider.getVehicle()
+    this.router.paramMap.subscribe(paramMap => {
+      if(!paramMap.has('name')){
+        console.log("Didnot received name")
+        return;
+      }
+      const name = paramMap.get('name');
+      console.log(name)
+      this.restProvider.getCompanyById(name)
+      .then(data=>{
+        this.company=data;
+        console.log(this.company);
+      });
+      const vname = paramMap.get('name');
+      console.log(vname)
+      this.restProvider.getVehicle(vname)
       .then(data=>{
         this.vehicles=data;
-        console.log(this.vehicles);
-      });
+        console.log(this.vehicles)
+      })
+    });
    
   }
+ 
+  
 }

@@ -4,15 +4,15 @@ import { NavController } from '@ionic/angular';
 import { ServiceService } from '../service.service';
 
 @Component({
-  selector: 'app-product-by-vehicle',
-  templateUrl: './product-by-vehicle.page.html',
-  styleUrls: ['./product-by-vehicle.page.scss'],
+  selector: 'app-pricelist-by-vehicle',
+  templateUrl: './pricelist-by-vehicle.page.html',
+  styleUrls: ['./pricelist-by-vehicle.page.scss'],
 })
-export class ProductByVehiclePage implements OnInit {
+export class PricelistByVehiclePage implements OnInit {
   products:any;
   vehicle:any;
   constructor(private route: Router,public navCtrl: NavController, public restProvider: ServiceService,public router:ActivatedRoute) { 
-   // this.getProductByVehicle();
+    
   }
 
   ngOnInit() {
@@ -37,23 +37,3 @@ export class ProductByVehiclePage implements OnInit {
   }
   
 }
-
-
-//   ngOnInit() {
-//   }
-//   gotoProductdetails()
-//   {
-//     this.route.navigate(['/product-details']);
-//   }
- 
-//   getProductByVehicle()
-//   {
-    
-//       this.restProvider.getProductByVehicle()
-//       .then(data=>{
-//         this.products=data;
-//         console.log(this.products);
-//       });
-   
-//   }
-// }

@@ -21,11 +21,11 @@ const routes: Routes = [
     loadChildren: () => import('./all-products/all-products.module').then( m => m.AllProductsPageModule)
   },
   {
-    path: 'all-products',
-    loadChildren: () => import('./all-products/all-products.module').then( m => m.AllProductsPageModule)
+    path:'product-details',
+    loadChildren: () => import('./product-details/product-details.module').then( m => m.ProductDetailsPageModule)
   },
   {
-    path: 'product-details',
+    path:'productDetail/:p_name',
     loadChildren: () => import('./product-details/product-details.module').then( m => m.ProductDetailsPageModule)
   },
   {
@@ -36,6 +36,7 @@ const routes: Routes = [
     path: 'vehicle',
     loadChildren: () => import('./vehicle/vehicle.module').then( m => m.VehiclePageModule)
   },
+
   {
     path: 'pricelist-all-product',
     loadChildren: () => import('./pricelist-all-product/pricelist-all-product.module').then( m => m.PricelistAllProductPageModule)
@@ -43,6 +44,19 @@ const routes: Routes = [
   {
     path: 'company',
     loadChildren: () => import('./company/company.module').then( m => m.CompanyPageModule)
+  },
+  {
+    path: 'vehicle/:name',
+    loadChildren: () => import('./vehicle/vehicle.module').then( m => m.VehiclePageModule)
+  },
+  {
+    path:'productByVehicle/:v_name',
+    loadChildren: () => import('./product-by-vehicle/product-by-vehicle.module').then( m => m.ProductByVehiclePageModule)
+
+  },
+  {
+    path: 'pricelist-by-vehicle/:v_name',
+    loadChildren: () => import('./pricelist-by-vehicle/pricelist-by-vehicle.module').then( m => m.PricelistByVehiclePageModule)
   },
 ];
 

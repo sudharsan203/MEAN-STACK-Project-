@@ -18,7 +18,7 @@ export class AllProductsPage implements OnInit {
   }
   gotoProductdetails()
   {
-    this.route.navigate(['/product-details']);
+    this.route.navigate(['/productDetail']);
   }
   getAllProducts()
   {

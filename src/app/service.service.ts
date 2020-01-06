@@ -5,19 +5,14 @@ import { resolve } from 'url';
   providedIn: 'root'
 })
 export class ServiceService {
-  apiurl='http://localhost:3000/product_init';
+  apiurl='http://localhost:3001/product_init';
   constructor(public http:HttpClient) {
-    this.getSearch();
-    this.getAllProducts();
-    this.getCompany();
-    this.getVehicle();
-    this.getProductByVehicle();
-    this.getProductDetails();
+    
    }
-   getSearch()
+   getSearch(name:String)
    {
     return new Promise(resolve=>{
-      this.http.get(this.apiurl).subscribe(data=>{
+      this.http.get(this.apiurl+'/search/'+name).subscribe(data=>{
         resolve(data);
       },err=>{
         console.log(err);
@@ -49,11 +44,43 @@ export class ServiceService {
       });
      });
    }
-
-   getVehicle()
+   getCompanyById(name:String)
    {
     return new Promise(resolve=>{
-      this.http.get(this.apiurl+'/vehicles').subscribe(data=>{
+      this.http.get(this.apiurl+'/companies/'+name).subscribe(data=>{
+        resolve(data);
+      },err=>{
+        console.log(err);
+
+      });
+     });
+   }
+   getAllVehicle()
+   {
+    return new Promise(resolve=>{
+      this.http.get(this.apiurl+'/vehicles/').subscribe(data=>{
+        resolve(data);
+      },err=>{
+        console.log(err);
+
+      });
+     });
+   }
+   getVehicle(name:String)
+   {
+    return new Promise(resolve=>{
+      this.http.get(this.apiurl+'/vehicles/'+name).subscribe(data=>{
+        resolve(data);
+      },err=>{
+        console.log(err);
+
+      });
+     });
+   }
+   getVeh(name:String)
+   {
+    return new Promise(resolve=>{
+      this.http.get(this.apiurl+'/veh/'+name).subscribe(data=>{
         resolve(data);
       },err=>{
         console.log(err);
@@ -62,10 +89,10 @@ export class ServiceService {
      });
    }
 
-   getProductByVehicle()
+   getProductByVehicle(name:String)
    {
     return new Promise(resolve=>{
-      this.http.get(this.apiurl+'/products').subscribe(data=>{
+      this.http.get(this.apiurl+'/productByVehicle/'+name).subscribe(data=>{
         resolve(data);
       },err=>{
         console.log(err);
@@ -74,10 +101,11 @@ export class ServiceService {
      });
    }
 
-   getProductDetails()
+   
+   getProductDetails(name:String)
    {
     return new Promise(resolve=>{
-      this.http.get(this.apiurl+'/products').subscribe(data=>{
+      this.http.get(this.apiurl+'/product/'+name).subscribe(data=>{
         resolve(data);
       },err=>{
         console.log(err);

@@ -1,41 +1,43 @@
 <ion-header>
-  <ion-toolbar><ion-buttons slot="start">
-    <ion-back-button defaultHref="dashboard"></ion-back-button>
-</ion-buttons>
-    <ion-title>product-by-vehicle</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="dashboard"></ion-back-button>
+        </ion-buttons>
+        <ion-title><img src="assets/top.PNG" id="img2"></ion-title>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <p><b>Tata LPT 1613</b></p>
-  <ion-card (click)="gotoProductdetails()" *ngFor="let product of products">
-    <ion-grid>
-      <ion-row>
-        <ion-col size="4">
-          <img style="margin-top:50% ;" src="/assets/slide1.jpg">
-        </ion-col>
-        <ion-col size="8">
-          <ion-row>
-            <div>
-              <p><b>{{product.name}}</b></p>
-              <p>{{product.price}}</p>
-            </div>
-           
-          </ion-row>
-          <ion-row>
-            <img style="height: 20px; width: 100px; margin-left: 16px;" src="/assets/flashscreen.png">
-          </ion-row>
-          <ion-row>
-            <div>
-            <p>KB Part no: {{product.kb_part_no}}</p>
-            <p>AM Part no: {{product.am_part_no}}</p>
-            <p>OEM Part no: {{product.oem_part_no}}</p>
-            </div>
-            
-          </ion-row>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+<ion-content *ngFor=" let vehicle of vehicle">
+    <p class="p1"><b>{{vehicle.v_name}}</b></p>
 
-  </ion-card>
+    <ion-card [routerLink]="['/productDetail',product.p_name]" *ngFor=" let product of products">
+        <ion-grid>
+            <ion-row>
+                <ion-col size="4">
+                    <img style="margin-top:50% ;" src="/assets/slide1.jpg">
+                </ion-col>
+                <ion-col size="8">
+                    <ion-row>
+                        <div>
+                            <p><b>{{product.p_name}}</b></p>
+                            <p>{{product.p_price}}</p>
+                        </div>
+
+                    </ion-row>
+                    <ion-row>
+                        <img style="height: 20px; width: 100px; margin-left: 16px;" src="/assets/ashok1.jpg">
+                    </ion-row>
+                    <ion-row>
+                        <div>
+                            <p>KB Part no: {{product.p_kb_part_no}}</p>
+                            <p>AM Part no: {{product.p_am_part_no}}</p>
+                            <p>OEM Part no: {{product.p_oem_part_no}}</p>
+                        </div>
+
+                    </ion-row>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+    </ion-card>
 </ion-content>

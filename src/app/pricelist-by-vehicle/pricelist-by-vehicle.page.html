@@ -1,0 +1,34 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="dashboard"></ion-back-button>
+        </ion-buttons>
+        <ion-title><img src="assets/top.PNG"></ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content *ngFor=" let vehicle of vehicle">
+    <p class="p1"><b>{{vehicle.v_name}}</b></p>
+
+
+    <ion-card *ngFor="let product of products;">
+        <ion-grid>
+            <ion-row>
+                <ion-col size="8">
+                    <p>{{product.p_name}}</p>
+                </ion-col>
+                <ion-col size="4">
+                    <p style="text-align: right;">{{product.p_price}} </p>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <div class="text1">
+                    <ion-label>KB Part No :</ion-label> {{product.p_kb_part_no}}<br/>
+                    <ion-label>AM Part No :</ion-label> {{product.p_am_part_no}}
+                </div>
+            </ion-row>
+        </ion-grid>
+
+
+    </ion-card>
+</ion-content>
