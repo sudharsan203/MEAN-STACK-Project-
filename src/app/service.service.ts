@@ -5,7 +5,7 @@ import { resolve } from 'url';
   providedIn: 'root'
 })
 export class ServiceService {
-  apiurl='http://localhost:3001/product_init';
+  apiurl='http://localhost:3001';
   constructor(public http:HttpClient) {
     
    }
@@ -24,7 +24,7 @@ export class ServiceService {
    getAllProducts()
    {
     return new Promise(resolve=>{
-      this.http.get(this.apiurl).subscribe(data=>{
+      this.http.get(this.apiurl+'/product').subscribe(data=>{
         resolve(data);
       },err=>{
         console.log(err);
@@ -70,6 +70,17 @@ export class ServiceService {
    {
      return new Promise(resolve=>{
        this.http.get(this.apiurl+'/producttypes').subscribe(data=>{
+         resolve(data);
+       },err=>{
+         console.log(err);
+ 
+       });
+      });
+   }
+   getProductsAlltypes()
+   {
+     return new Promise(resolve=>{
+       this.http.get(this.apiurl+'/productbytypes/').subscribe(data=>{
          resolve(data);
        },err=>{
          console.log(err);

@@ -92,35 +92,9 @@ app.post('/post', (req, res) => {
 });
 
 
-// read
-app.get('/product_init/id', (req, res) => {
-    const collection = "product_init";
-    db.getDB().collection(collection).findOne({ "p_name": "Air Dryer" }, function(err, documents) {
-        if (err)
-            console.log(err);
-        else {
-            //        db.getDB().collection(collection).find({},{_id:0});
-            res.json(documents);
-        }
-    });
-});
-
-
 
 // read
-app.get('/product_init', (req, res) => {
-    const collection = "product_init";
-    db.getDB().collection(collection).find({}, { projection: { _id: 0 } }).toArray((err, documents) => {
-        if (err)
-            console.log(err);
-        else {
-            //        db.getDB().collection(collection).find({},{_id:0});
-            res.json(documents);
-        }
-    });
-});
-// read
-app.get('/product_init/vehicles', (req, res) => {
+app.get('/vehicles', (req, res) => {
     // get all Todo documents within our todo collection
     // send back to user as json
     const collection = "vehicles";
@@ -133,7 +107,7 @@ app.get('/product_init/vehicles', (req, res) => {
         }
     });
 }); // read
-app.get('/product_init/companies', (req, res) => {
+app.get('/companies', (req, res) => {
     // get all Todo documents within our todo collection
     // send back to user as json
     const collection = "companies";
@@ -146,7 +120,7 @@ app.get('/product_init/companies', (req, res) => {
         }
     });
 });
-app.get('/product_init/products', (req, res) => {
+app.get('/products', (req, res) => {
     // get all Todo documents within our todo collection
     // send back to user as json
     const collection = "products";
@@ -159,10 +133,38 @@ app.get('/product_init/products', (req, res) => {
         }
     });
 });
-app.get('/product_init/producttypes', (req, res) => {
+app.get('/producttypes', (req, res) => {
     // get all Todo documents within our todo collection
     // send back to user as json
     const collection = "types";
+    db.getDB().collection(collection).find({}, { projection: { _id: 0 } }).toArray((err, documents) => {
+        if (err)
+            console.log(err);
+        else {
+            //        db.getDB().collection(collection).find({},{_id:0});
+            res.json(documents);
+        }
+    });
+});
+
+app.get('/productbytypes', (req, res) => {
+    // get all Todo documents within our todo collection
+    // send back to user as json
+    const collection = "producttypes";
+    db.getDB().collection(collection).find({}, { projection: { _id: 0 } }).toArray((err, documents) => {
+        if (err)
+            console.log(err);
+        else {
+            //        db.getDB().collection(collection).find({},{_id:0});
+            res.json(documents);
+        }
+    });
+});
+
+app.get('/product', (req, res) => {
+    // get all Todo documents within our todo collection
+    // send back to user as json
+    const collection = "products";
     db.getDB().collection(collection).find({}, { projection: { _id: 0 } }).toArray((err, documents) => {
         if (err)
             console.log(err);
@@ -188,7 +190,7 @@ app.get('/product_init/producttypes', (req, res) => {
 //     });
 // });
 
-app.get('/product_init/product/:p_name', (req, res) => {
+app.get('/product/:p_name', (req, res) => {
     // get all Todo documents within our todo collection
     // send back to user as json
     var p_name = req.params.p_name;
@@ -204,7 +206,7 @@ app.get('/product_init/product/:p_name', (req, res) => {
     });
 });
 
-app.get('/product_init/productbytypes/:name', (req, res) => {
+app.get('/productbytypes/:name', (req, res) => {
     // get all Todo documents within our todo collection
     // send back to user as json
     var name = req.params.name;
@@ -220,7 +222,7 @@ app.get('/product_init/productbytypes/:name', (req, res) => {
     });
 });
 
-app.get('/product_init/companies/:name', (req, res) => {
+app.get('/companies/:name', (req, res) => {
     // get all Todo documents within our todo collection
     // send back to user as json
     var name = req.params.name;
@@ -235,7 +237,7 @@ app.get('/product_init/companies/:name', (req, res) => {
         }
     });
 });
-app.get('/product_init/vehicles/:name', (req, res) => {
+app.get('/vehicles/:name', (req, res) => {
     // get all Todo documents within our todo collection
     // send back to user as json
     var name = req.params.name;
@@ -251,7 +253,7 @@ app.get('/product_init/vehicles/:name', (req, res) => {
     });
 });
 
-app.get('/product_init/productByVehicle/:name', (req, res) => {
+app.get('/productByVehicle/:name', (req, res) => {
     // get all Todo documents within our todo collection
     // send back to user as json
     var name = req.params.name;
@@ -267,7 +269,7 @@ app.get('/product_init/productByVehicle/:name', (req, res) => {
     });
 });
 
-app.get('/product_init/pricelist-by-vehicle/:name', (req, res) => {
+app.get('/pricelist-by-vehicle/:name', (req, res) => {
     // get all Todo documents within our todo collection
     // send back to user as json
     var name = req.params.name;
@@ -282,7 +284,7 @@ app.get('/product_init/pricelist-by-vehicle/:name', (req, res) => {
         }
     });
 });
-app.get('/product_init/veh/:name', (req, res) => {
+app.get('/veh/:name', (req, res) => {
     // get all Todo documents within our todo collection
     // send back to user as json
     var name = req.params.name;
@@ -301,21 +303,21 @@ app.get('/product_init/veh/:name', (req, res) => {
 
 
 
-app.get('/product_init/search/:name', (req, res) => {
-    // get all Todo documents within our todo collection
-    // send back to user as json
-    var name = req.params.name;
-    const collection = "search";
-    db.getDB().collection(collection).aggregate([{ $match: { 'name': { $regex: name } } }]).toArray((err, documents) => {
-        if (err)
-            console.log(err);
-        else {
-            //        db.getDB().collection(collection).find({},{_id:0});
-            res.json(documents).toArray;
-            //    console.log(JSON.stringify(res))
-        }
-    });
-});
+// app.get('/product_init/search/:name', (req, res) => {
+//     // get all Todo documents within our todo collection
+//     // send back to user as json
+//     var name = req.params.name;
+//     const collection = "search";
+//     db.getDB().collection(collection).aggregate([{ $match: { 'name': { $regex: name } } }]).toArray((err, documents) => {
+//         if (err)
+//             console.log(err);
+//         else {
+//             //        db.getDB().collection(collection).find({},{_id:0});
+//             res.json(documents).toArray;
+//             //    console.log(JSON.stringify(res))
+//         }
+//     });
+// });
 
 // dbo.collection('orders').aggregate([
 //     { $lookup:

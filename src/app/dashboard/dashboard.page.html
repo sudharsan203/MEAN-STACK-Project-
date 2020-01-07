@@ -17,12 +17,22 @@
             <img src="assets/slide3.jpg">
         </ion-slide>
     </ion-slides>
-    <ion-searchbar placeholder="Product,Part No.,Company,Vehical Model"></ion-searchbar>
+    <ion-searchbar (ionChange)="getItems($event)" (ionClear)="getClear()" (ionFocus)="getItems($event)" (ionInput)="getItems($event)"></ion-searchbar>
+    <ion-list>
+        <ion-item *ngFor="let item of searchproduct" (click)="getProductAlltypes(searchproduct.name)">
+            {{ item.p_name}}
+        </ion-item>
+        <ion-item *ngFor="let item of searchcomp" (click)="getCompany(searchcomp.name)">
+            {{ item.name }}
+        </ion-item>
+
+    </ion-list>
+    <!-- <ion-searchbar placeholder="Product,Part No.,Company,Vehical Model"></ion-searchbar>
     <ion-card #cc class="ion-card-search">
         <ion-list #cc>
             <ion-item [routerLink]="['/company', company.name]" *ngFor="let company of company">{{company.name}}</ion-item>
         </ion-list>
-    </ion-card>
+    </ion-card> -->
     <!-- <ion-card #cc class="ion-card-search">
         <ion-list #cc>
             <ion-item [routerLink]="['/productDetail',item.id]" *ngFor="let item of product">{{item.p_name}}</ion-item>
