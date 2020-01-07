@@ -17,12 +17,12 @@
             <img src="assets/slide3.jpg">
         </ion-slide>
     </ion-slides>
-    <ion-searchbar (ionChange)="getItems($event)" (ionClear)="getClear()" (ionFocus)="getItems($event)" (ionInput)="getItems($event)"></ion-searchbar>
+    <ion-searchbar (ionChange)="getItems($event)" (ionFocus)="getItems($event)" (ionInput)="getItems($event)"></ion-searchbar>
     <ion-list>
-        <ion-item *ngFor="let item of searchproduct" (click)="getProductAlltypes(searchproduct.name)">
+        <ion-item *ngFor="let item of searchproduct">
             {{ item.p_name}}
         </ion-item>
-        <ion-item *ngFor="let item of searchcomp" (click)="getCompany(searchcomp.name)">
+        <ion-item *ngFor="let item of searchcomp">
             {{ item.name }}
         </ion-item>
 

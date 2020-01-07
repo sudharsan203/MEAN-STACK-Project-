@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, Renderer } from '@angular/core';
 import { Router } from '@angular/router';
 import {ServiceService} from '../service.service';
 import { NavController } from '@ionic/angular';
@@ -15,7 +15,9 @@ export class DashboardPage implements OnInit {
   searchcomp = [];
   searchitem:any;
   searchcompany:any;
-  constructor(private route: Router,public navCtrl: NavController, public restProvider: ServiceService) {
+
+  ;
+  constructor(private route: Router,public navCtrl: NavController, public restProvider: ServiceService, public renderer: Renderer) {
     
     this.initializeItems();
    }
@@ -29,7 +31,7 @@ export class DashboardPage implements OnInit {
   }
   initializeItems() {
     this.searchproduct = [];
-    
+    this.searchcomp = [];
   }
   getItems(ev) {
     // Reset items back to all of the items
@@ -49,7 +51,7 @@ export class DashboardPage implements OnInit {
     }
   }
   getClear(ev) {
-  
+    
   }
   gotoProducts()
   {
@@ -59,5 +61,6 @@ export class DashboardPage implements OnInit {
   {
     this.route.navigate(['/price-list']);
   }
+ 
   
 }
