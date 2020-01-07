@@ -11,13 +11,14 @@
             <img src="assets/slide1.jpg">
         </ion-slide>
         <ion-slide>
-            <img src="assets/slide2.jpg">
-        </ion-slide>
-        <ion-slide>
             <img src="assets/slide3.jpg">
         </ion-slide>
+        <ion-slide>
+            <img src="assets/slide1.jpg">
+        </ion-slide>
     </ion-slides>
-    <ion-searchbar (ionChange)="getItems($event)" (ionFocus)="getItems($event)" (ionInput)="getItems($event)"></ion-searchbar>
+    <ion-searchbar (ionChange)="getItems($event)" (ionFocus)="getItems($event)" (ionInput)="getItems($event)" placeholder="Product,Part No.,Company,Vehicle Model">
+    </ion-searchbar>
     <ion-list>
         <ion-item *ngFor="let item of searchproduct">
             {{ item.p_name}}
@@ -27,6 +28,7 @@
         </ion-item>
 
     </ion-list>
+
     <!-- <ion-searchbar placeholder="Product,Part No.,Company,Vehical Model"></ion-searchbar>
     <ion-card #cc class="ion-card-search">
         <ion-list #cc>
