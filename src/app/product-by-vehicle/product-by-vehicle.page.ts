@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { NavController, ToastController } from '@ionic/angular';
 import { ServiceService } from '../service.service';
+import { empty } from 'Ionic_TPL/node_modules/rxjs';
+
 
 @Component({
   selector: 'app-product-by-vehicle',
@@ -11,8 +13,17 @@ import { ServiceService } from '../service.service';
 export class ProductByVehiclePage implements OnInit {
   products:any;
   vehicle:any;
-  constructor(private route: Router,public navCtrl: NavController, public restProvider: ServiceService,public router:ActivatedRoute) { 
+  constructor(public toastController: ToastController,private route: Router,public navCtrl: NavController, public restProvider: ServiceService,public router:ActivatedRoute) { 
    // this.getProductByVehicle();
+  }
+
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: ' No Data to display ',
+      position: "bottom",
+      duration: 1500
+    });
+    toast.present();
   }
 
   ngOnInit() {
@@ -26,6 +37,12 @@ export class ProductByVehiclePage implements OnInit {
       .then(data=>{
         this.products=data;
         console.log(this.products);
+        if(this.products.length == 0){
+          this.presentToast()
+        }
+        else{
+        console.log(this.products);
+        }
       });
 
       this.restProvider.getVeh(v_name)

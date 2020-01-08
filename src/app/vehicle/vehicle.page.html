@@ -22,7 +22,7 @@
         <ion-row>
             <ion-col *ngFor="let vehicle of vehicles" size="6">
                 <ion-card [routerLink]="['/productByVehicle',vehicle.v_name]">
-                    <img src="assets/slide1.jpg">
+                    <img src={{vehicle.src}}>
                     <p>{{vehicle.v_name}}</p>
                 </ion-card>
             </ion-col>

@@ -1,49 +1,50 @@
 <div id="custom-overlay" [style.display]="splash ? 'flex': 'none'">
-  <div class="flb">
-    <div class="Aligner-item Aligner-item--top"></div>
-    <img src="assets/flashscreen.png">
-    <div class="Aligner-item Aligner-item--bottom"></div>
-  </div>
+    <div class="flb">
+        <div class="Aligner-item Aligner-item--top"></div>
+        <img src="assets/flashscreen.png">
+        <div class="Aligner-item Aligner-item--bottom"></div>
+    </div>
 </div>
 
 <ion-content>
-  <form (ngSubmit)="dashboard()" method="post" id="container">
-    <div padding=20px;>
-        <div>
-            <ion-label>First Name</ion-label><br/>
-            <ion-input type="text" name="first_name" [(ngModel)]="credentials.first_name"></ion-input>
-        </div>
-        <div>
-            <ion-label>Last Name</ion-label><br/>
-            <ion-input type="text" name="last_name" [(ngModel)]="credentials.last_name"></ion-input>
-        </div>
+    <img src="assets/home.JPG">
+    <form (ngSubmit)="dashboard()" method="post" id="container">
+        <div padding=20px;>
+            <div>
+                <ion-label>First Name</ion-label><br/>
+                <ion-input type="text" name="first_name" [(ngModel)]="credentials.first_name"></ion-input>
+            </div>
+            <div>
+                <ion-label>Last Name</ion-label><br/>
+                <ion-input type="text" name="last_name" [(ngModel)]="credentials.last_name"></ion-input>
+            </div>
 
-        <div>
-            <ion-label>Password</ion-label><br/>
-            <ion-input type="text" name="password" [(ngModel)]="credentials.password"></ion-input>
-        </div>
+            <div>
+                <ion-label>Password</ion-label><br/>
+                <ion-input type="text" name="password" [(ngModel)]="credentials.password"></ion-input>
+            </div>
 
 
-        <div>
-            <ion-label>Email</ion-label><br/>
-            <ion-input type="email" name="email" [(ngModel)]="credentials.email"></ion-input>
-        </div>
-        <div>
-            <ion-label>UserType(db)</ion-label><br/>
-            <ion-input type="text" name="type" [(ngModel)]="credentials.type"></ion-input>
-        </div>
+            <div>
+                <ion-label>Email</ion-label><br/>
+                <ion-input type="email" name="email" [(ngModel)]="credentials.email"></ion-input>
+            </div>
+            <div>
+                <ion-label>UserType(db)</ion-label><br/>
+                <ion-input type="text" name="type" [(ngModel)]="credentials.type"></ion-input>
+            </div>
 
-        <div>
-            <ion-label>User Type</ion-label> <br/>
-            <ion-select placeholder="Select One">
-                <ion-select-option value="a">A</ion-select-option>
-                <ion-select-option value="b">B</ion-select-option>
-            </ion-select>
-        </div>
+            <div>
+                <ion-label>User Type</ion-label> <br/>
+                <ion-select placeholder="Select One">
+                    <ion-select-option value="a">Customer</ion-select-option>
+                    <ion-select-option value="b">Dealer</ion-select-option>
+                </ion-select>
+            </div>
 
-        <ion-button color="white" (click)="dashboard()" style="color: rgb(6, 6, 117);">Skip</ion-button>
-        <ion-button type="submit" color="primary">Let's Start</ion-button>
-    </div>
-</form>
-  
+            <ion-button color="white" (click)="gotoDash()" style="color: rgb(6, 6, 117);">Skip</ion-button>
+            <ion-button type="submit" color="primary">Let's Start</ion-button>
+        </div>
+    </form>
+
 </ion-content>

@@ -22,7 +22,7 @@ export class AllProductsPage implements OnInit {
   }
   getAllProducts()
   {
-     this.restProvider.getAllProducts()
+     this.restProvider.getProductsAlltypes()
      .then(data=>{
        this.products=data;
        console.log(this.products);

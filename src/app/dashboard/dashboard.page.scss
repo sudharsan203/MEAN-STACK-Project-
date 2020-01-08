@@ -1,6 +1,6 @@
 img {
     width: 100%;
-    height: fit-content;
+    align-self: auto;
 }
 
 // ion-searchbar {
@@ -12,7 +12,7 @@ img {
 //     border: 1px solid transparent;
 // }
 ion-content {
-    --background: rgb(241, 240, 240);
+    --background: rgb(250, 250, 250);
     img {
         width: 100%;
         height: 100%;
@@ -23,21 +23,23 @@ ion-searchbar {
     border-radius: 25px; // !important;
     margin-left: auto;
     margin-right: auto;
-    margin-top: -6.5vmin;
+    margin-top: -6vmin;
     z-index: 1;
 }
 
-ion-card {
-    height: 80px;
-    width: 105px;
+.cards1 {
+    height: 95px;
+    width: 100%;
+    align-self: auto;
+    margin: auto;
     --background: white;
     font: left;
     text-align: center;
     border-radius: 10px;
     img {
         height: 40%;
-        width: 40%;
-        margin-left: 25%;
+        width: 100%;
+        align-self: auto;
         margin-top: 10%;
     }
     .p1 {
@@ -77,5 +79,17 @@ ion-grid {
     h6 {
         margin-left: 10px;
         color: black;
+    }
+}
+
+ion-button {
+    margin-right: auto;
+    padding-top: 0px;
+}
+
+.horizontal-cards {
+    ion-card {
+        display: inline-block;
+        width: 45%;
     }
 }

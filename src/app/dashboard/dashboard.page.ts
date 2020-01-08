@@ -53,6 +53,10 @@ export class DashboardPage implements OnInit {
   getClear(ev) {
     
   }
+  gotoAllProducts()
+  {
+    this.route.navigate(['/all-products']);
+  }
   gotoProducts()
   {
     this.route.navigate(['/products']);
