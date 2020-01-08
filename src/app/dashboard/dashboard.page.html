@@ -21,10 +21,10 @@
     <ion-searchbar (ionChange)="getItems($event)" (ionFocus)="getItems($event)" (ionInput)="getItems($event)" placeholder="Product,Part No.,Company,Vehicle Model">
     </ion-searchbar>
     <ion-list>
-        <ion-item *ngFor="let item of searchproduct">
+        <ion-item [routerLink]="['/productDetail',item.p_name]" *ngFor="let item of searchproduct">
             <!-- <img src={{item.src}}>-->{{ item.p_name}}
         </ion-item>
-        <ion-item *ngFor="let item of searchcomp">
+        <ion-item [routerLink]="['/company', item.name]" *ngFor="let item of searchcomp">
             {{ item.name }}
         </ion-item>
 
@@ -134,38 +134,10 @@
     </ion-card>
 
 
-    <!-- <ion-card>
-        <ion-item>
-            <ion-icon name="pin" slot="start"></ion-icon>
-            <ion-label>ion-item in a card, icon left, button right</ion-label>
-            <ion-button fill="outline" slot="end">View</ion-button>
-        </ion-item>
 
-        <ion-card-content>
-            This is content, without any paragraph or header tags, within an ion-card-content element.ihbfghsdbifvnondvs bsbdfibvisdb sdnfgvsdvu nodvnsdnvosdn knosdnvod jkosdnvgsodnv sdnovnsjknvjknfv knxcvjonznjxv
-        </ion-card-content>
-    </ion-card> -->
-
-
-    <!-- <ion-card id="news-card">
-        <ion-grid>
-            <ion-row>
-                <a href="">Stratan</a>
-            </ion-row>
-
-            <ion-row>
-                <a href="">Ohio</a>
-            </ion-row>
-
-            <ion-row>
-                <a href="">Dayton</a>
-            </ion-row>
-        </ion-grid>
-
-    </ion-card> -->
     <p>
         <b slot="start">Favourite Items
-        <ion-button fill="outline" slot="end" style="padding: 1px 12px 0px 0px" class="ion-float-right">Show All</ion-button></b>
+        <ion-button fill="outline" slot="end" style="padding: 1px 12px 0px 0px" class="ion-float-right"  routerLink="/all-products">Show All</ion-button></b>
     </p>
     <div class="horizontal-cards">
         <ion-card (click)="gotoAllProducts()">
@@ -179,7 +151,7 @@
 
         <ion-card (click)="gotoAllProducts()">
             <ion-card-header>
-                <img src="assets/air.PNG">
+                <img src="assets/dryer.jpg">
                 <ion-card-title>Air Dryer</ion-card-title>
                 <ion-card-subtitle>$ 6641</ion-card-subtitle>
             </ion-card-header>
