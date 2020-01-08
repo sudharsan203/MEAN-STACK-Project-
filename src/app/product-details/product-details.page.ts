@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ServiceService} from '../service.service';
-import { NavController } from '@ionic/angular';
+import { NavController, ToastController  } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -10,10 +10,18 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductDetailsPage implements OnInit {
   products:any;
-  constructor(public navCtrl: NavController ,public router:ActivatedRoute
+  constructor(public toastController: ToastController,public navCtrl: NavController ,public router:ActivatedRoute
     ,public restProvider: ServiceService) {
     //this.getProductDetails();
    }
+   async presentToast() {
+    const toast = await this.toastController.create({
+      message: ' No Data to display ',
+      position: "bottom",
+      duration: 1500
+    });
+    toast.present();
+  }
 
    ngOnInit() {
     this.router.paramMap.subscribe(paramMap => {
@@ -26,7 +34,13 @@ export class ProductDetailsPage implements OnInit {
       this.restProvider. getProductDetails(p_name)
       .then(data=>{
         this.products=data;
-        console.log(this.products);
+        if(this.products.length == 0)
+        {
+          this.presentToast()
+        }
+        else{
+          console.log(this.products);
+        }
       });
      
     });
