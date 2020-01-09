@@ -7,7 +7,8 @@
         <ion-title><img src="assets/v5.JPG"></ion-title>
     </ion-toolbar>
 
-    <ion-slides pager>
+    <ion-slides pager></ion-slides>
+    <ion-slides pager [options]="slideOptions" #slider (ionSlidesDidLoad)="slidesDidLoad(slider)">
         <ion-slide>
             <img src="assets/slide1.jpg">
         </ion-slide>
@@ -18,35 +19,52 @@
             <img src="assets/v2.jpg">
         </ion-slide>
     </ion-slides>
-    <ion-searchbar (ionChange)="getItems($event)" (ionFocus)="getItems($event)" (ionInput)="getItems($event)" placeholder="Product,Part No.,Company,Vehicle Model">
-    </ion-searchbar>
-    <ion-list>
-        <ion-item [routerLink]="['/productDetail',item.p_name]" *ngFor="let item of searchproduct">
-            <!-- <img src={{item.src}}>-->{{ item.p_name}}
-        </ion-item>
-        <ion-item [routerLink]="['/vehicle', item.name]" *ngFor="let item of searchcomp">
-            {{ item.name }}
-        </ion-item>
 
-    </ion-list>
+    <!-- <div class="bar">
+        <ion-searchbar style="padding: 0px 0px 0px 0px;" (ionChange)="getItems($event)" (ionFocus)="getItems($event)" (ionInput)="getItems($event)" placeholder="Product,Part No.,Company,Vehicle Model">
+        </ion-searchbar>
+        <ion-list>
+            <ion-item [routerLink]="['/productDetail',item.p_name]" *ngFor="let item of searchproduct">
+                {{ item.p_name}}
+            </ion-item>
+            <ion-item [routerLink]="['/vehicle', item.name]" *ngFor="let item of searchcomp">
+                {{ item.name }}
+            </ion-item>
 
-    <!-- <ion-searchbar placeholder="Product,Part No.,Company,Vehical Model"></ion-searchbar>
-    <ion-card #cc class="ion-card-search">
-        <ion-list #cc>
-            <ion-item [routerLink]="['/company', company.name]" *ngFor="let company of company">{{company.name}}</ion-item>
         </ion-list>
-    </ion-card> -->
-    <!-- <ion-card #cc class="ion-card-search">
-        <ion-list #cc>
-            <ion-item [routerLink]="['/productDetail',item.id]" *ngFor="let item of product">{{item.p_name}}</ion-item>
-        </ion-list>
-        <ion-list #cc>
-            <ion-item [routerLink]="['/searchCompany',item.id]" *ngFor="let item of company">{{item.name}}</ion-item>
-        </ion-list>
-        <ion-list #cc>
-            <ion-item [routerLink]="['/searchVehicle',item.id,item.company_id,item.type]" *ngFor="let item of vehicle">{{item.v_name}}</ion-item>
-        </ion-list>
-    </ion-card> -->
+
+    </div> -->
+
+    <ion-card class="adjust2">
+        <ion-searchbar style="padding-bottom: 0px; all: unset;" (ionChange)="getItems($event)" (ionFocus)="getItems($event)" (ionInput)="getItems($event)" placeholder="product,vehicle model,part no,company"></ion-searchbar>
+
+        <ion-card-content class="card-content" style="padding: 0px;">
+            <div class="break"></div>
+            <ion-grid style="padding: 0px;">
+                <ion-row class="search_row" *ngFor="let item of searchproduct" [routerLink]="['/productDetail',item.p_name]">
+                    <ion-col size=1 style="padding: 0px; padding-top: 5px;">
+                        <img src={{item.src}} style="width: 21.66; height: 18.39;">
+                    </ion-col>
+                    <ion-col size=11>
+                        {{item.p_name}}
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+            <div class="break"></div>
+            <ion-grid style="padding: 0px;">
+                <ion-row class="search_row" *ngFor="let item of searchcomp" [routerLink]="['/vehicle', item.name]">
+                    <ion-col size=1 style="padding: 0px; padding-top: 5px;">
+                        <img src={{item.src}} style="width: 21.66; height: 18.39;">
+                    </ion-col>
+                    <ion-col size=11>
+                        {{item.name}}
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+
+        </ion-card-content>
+    </ion-card>
+
     <div>
         <p>
             <b>

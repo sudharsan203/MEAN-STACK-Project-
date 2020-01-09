@@ -3,28 +3,28 @@ const ObjectID = require('mongodb').ObjectID;
 // name of our database
 const dbname = "test";
 // location of where our mongoDB database is located
-const url = "mongodb://localhost:27017";
+const url = "mongodb+srv://khash:khash%40123@cluster0-dohjg.gcp.mongodb.net/test?authSource=admin&replicaSet=Cluster0-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true";
 // Options for mongoDB
-const mongoOptions = {useNewUrlParser : true};
+const mongoOptions = { useNewUrlParser: true };
 
 const state = {
-    db : null
+    db: null
 };
 
-const connect = (cb) =>{
+const connect = (cb) => {
     // if state is not NULL
     // Means we have connection already, call our CB
-    if(state.db)
+    if (state.db)
         cb();
-    else{
+    else {
         // attempt to get database connection
-        MongoClient.connect(url,mongoOptions,(err,client)=>{
+        MongoClient.connect(url, mongoOptions, (err, client) => {
             // unable to get database connection pass error to CB
-            if(err)
+            if (err)
                 cb(err);
             // Successfully got our database connection
             // Set database connection and call CB
-            else{
+            else {
                 state.db = client.db(dbname);
                 cb();
             }
@@ -33,13 +33,13 @@ const connect = (cb) =>{
 }
 
 // returns OBJECTID object used to 
-const getPrimaryKey = (_id)=>{
+const getPrimaryKey = (_id) => {
     return ObjectID(_id);
 }
 
 // returns database connection 
-const getDB = ()=>{
+const getDB = () => {
     return state.db;
 }
 
-module.exports = {getDB,connect,getPrimaryKey};
+module.exports = { getDB, connect, getPrimaryKey };

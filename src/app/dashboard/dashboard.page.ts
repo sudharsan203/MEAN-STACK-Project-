@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, Renderer } from '@angular/core';
 import { Router } from '@angular/router';
 import {ServiceService} from '../service.service';
-import { NavController } from '@ionic/angular';
+import { NavController, IonSlides } from '@ionic/angular';
 
 @Component({
   selector: 'app-dashboard',
@@ -65,6 +65,12 @@ export class DashboardPage implements OnInit {
   {
     this.route.navigate(['/price-list']);
   }
- 
+  slidesDidLoad(slides: IonSlides) {
+    slides.startAutoplay();
+  }
+  slideOptions = {
+    initialSlide: 0,
+    speed: 400,
+  };
   
 }
