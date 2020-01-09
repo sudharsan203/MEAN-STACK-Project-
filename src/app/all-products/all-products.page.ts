@@ -10,15 +10,46 @@ import { NavController } from '@ionic/angular';
 })
 export class AllProductsPage implements OnInit {
   products:any;
+  public searchInput='';
+  searchproduct = [];
+  searchitem:any;
+
+
+  public showSearchBar = false;
   constructor(private route: Router,public navCtrl: NavController, public restProvider: ServiceService) {
     this.getAllProducts();
    }
 
   ngOnInit() {
+    this.restProvider.getProductsAlltypes().then(data => {
+      this.searchitem = data; })
+  }
+  initializeItems() {
+    this.searchproduct = [];
+
+  }
+  getItems(ev) {
+    // Reset items back to all of the items
+    this.initializeItems();
+
+    // set val to the value of the ev target
+    var val = ev.target.value;
+
+    // if the value is an empty string don't filter the items
+    if (val && val.trim() != '') {
+      this.searchproduct = this.searchitem.filter((item) => {
+        return (item.p_name.toLowerCase().indexOf(val.toLowerCase()) > -1 );
+      })
+    }
   }
   gotoProductdetails()
   {
     this.route.navigate(['/productDetail']);
+  }
+  
+  onclick(event: Event) {
+    this.showSearchBar = !this.showSearchBar;
+
   }
   getAllProducts()
   {
