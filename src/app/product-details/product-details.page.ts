@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductDetailsPage implements OnInit {
   products:any;
+  public nodata:string = null
   constructor(public toastController: ToastController,public navCtrl: NavController ,public router:ActivatedRoute
     ,public restProvider: ServiceService) {
     //this.getProductDetails();
@@ -37,6 +38,7 @@ export class ProductDetailsPage implements OnInit {
         if(this.products.length == 0)
         {
           this.presentToast()
+          this.nodata = "No Data Found"
         }
         else{
           console.log(this.products);

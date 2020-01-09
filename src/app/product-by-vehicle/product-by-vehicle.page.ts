@@ -13,6 +13,7 @@ import { empty } from 'Ionic_TPL/node_modules/rxjs';
 export class ProductByVehiclePage implements OnInit {
   products:any;
   vehicle:any;
+  public nodata : string = null;
   constructor(public toastController: ToastController,private route: Router,public navCtrl: NavController, public restProvider: ServiceService,public router:ActivatedRoute) { 
    // this.getProductByVehicle();
   }
@@ -39,6 +40,7 @@ export class ProductByVehiclePage implements OnInit {
         console.log(this.products);
         if(this.products.length == 0){
           this.presentToast()
+          this.nodata = "No Data Found"
         }
         else{
         console.log(this.products);

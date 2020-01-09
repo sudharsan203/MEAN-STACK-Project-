@@ -11,6 +11,7 @@ import { NavController, ToastController  } from '@ionic/angular';
 export class VehiclePage implements OnInit {
   vehicles:any;
   company:any;
+  public nodata:string = null
   constructor(public toastController: ToastController,private route: Router,public navCtrl: NavController, public restProvider: ServiceService,public router:ActivatedRoute) {
     //this.getVehicle(name);
    
@@ -44,6 +45,7 @@ export class VehiclePage implements OnInit {
         this.vehicles=data;
         if(this.vehicles.length == 0){
           this.presentToast()
+          this.nodata = "No Data Found"
         }else{
         console.log(this.vehicles)
         }

@@ -15,7 +15,12 @@ ion-card {
     }
 }
 
+// img {
+//     width: auto;
+//     height: fit-content;
+// }
 img {
     width: auto;
+    align-self: auto;
     height: fit-content;
 }

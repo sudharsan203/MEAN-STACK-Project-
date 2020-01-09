@@ -23,3 +23,17 @@ ion-card {
         margin-top: auto;
     }
 }
+
+.data {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font-size: 25px;
+    font-weight: bold;
+    opacity: 0.3;
+    //text-shadow: 5px 5px #aaa;
+    text-shadow: 0 0 25px rgb(180, 89, 89);
+}
