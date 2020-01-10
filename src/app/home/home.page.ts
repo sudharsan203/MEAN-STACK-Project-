@@ -49,7 +49,16 @@ export class HomePage {
       }
 
     dashboard(){
-     this.auth.register(this.credentials).subscribe(
+    // let key = 'khash elcoe';
+    // // localStorage.setItem(key, 'Value');
+    // localStorage.setItem(key, JSON.stringify(key));
+    // console.log(key)
+    // let item = JSON.parse(localStorage.getItem(key));
+  // let myItem = localStorage.getItem("key");
+   // console.log(item)
+    //console.log(myItem)
+
+    this.auth.register(this.credentials).subscribe(
        () =>{
          this.route.navigateByUrl('/dashboard')
          this.presentToast()
@@ -68,6 +77,7 @@ export class HomePage {
     }
     gotoDash()
   {
+    
     this.route.navigate(['/dashboard']);
   }
     

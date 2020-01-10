@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild, Renderer } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router , ActivatedRoute} from '@angular/router';
 import {ServiceService} from '../service.service';
 import { NavController, IonSlides } from '@ionic/angular';
+import { Key } from 'Ionic_TPL/node_modules/protractor/built';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,15 +16,26 @@ export class DashboardPage implements OnInit {
   searchcomp = [];
   searchitem:any;
   searchcompany:any;
-
+ 
   ;
-  constructor(private route: Router,public navCtrl: NavController, public restProvider: ServiceService, public renderer: Renderer) {
+  constructor(private route: Router,public navCtrl: NavController, public restProvider: ServiceService, public renderer: Renderer,public router:ActivatedRoute) {
     
     this.initializeItems();
    }
 
 
   ngOnInit() {
+   // let loggedData = JSON.parse(localStorage.getItem('loggedInfo'));
+    // this.router.paramMap.subscribe(paramMap => {
+    //   const first_name = paramMap.get("first_name");
+    //   console.log("first_name")
+    // })
+  //  console.log(localStorage.getItem('key'))
+    
+  //  let item = JSON.parse(localStorage.getItem('key'));
+    // let myItem = localStorage.getItem("key");
+  //  console.log(item)
+
     this.restProvider.getProductsAlltypes().then(data => {
       this.searchitem = data; })
     this.restProvider.getCompany().then(data2 => {

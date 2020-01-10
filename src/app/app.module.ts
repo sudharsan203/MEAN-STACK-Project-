@@ -10,11 +10,16 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms'
 import {AuthenticationService} from './authentication.service'
 import { HomePageModule } from './home/home.module';
+import { StorageServiceModule} from 'angular-webstorage-service';
+
 @NgModule({
   
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule,FormsModule],
+ 
+
+
+  imports: [BrowserModule,StorageServiceModule,BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule,FormsModule], 
   providers: [
     AuthenticationService,
     StatusBar,
