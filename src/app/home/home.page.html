@@ -15,32 +15,29 @@
                 <ion-input type="text" name="first_name" [(ngModel)]="credentials.first_name"></ion-input>
             </div>
             <div>
-                <ion-label>Last Name</ion-label><br/>
-                <ion-input type="text" name="last_name" [(ngModel)]="credentials.last_name"></ion-input>
+                <ion-label>Phone Number</ion-label><br/>
+                <ion-input type="Number" maxlength="10" pattern="\d{10}" name="phone" [(ngModel)]="credentials.phone"></ion-input>
             </div>
 
-            <div>
+            <!-- <div>
                 <ion-label>Password</ion-label><br/>
-                <ion-input type="text" name="password" [(ngModel)]="credentials.password"></ion-input>
-            </div>
+                <ion-input type="password" name="password" [(ngModel)]="credentials.password"></ion-input>
+            </div> -->
 
 
             <div>
                 <ion-label>Email</ion-label><br/>
                 <ion-input type="email" name="email" [(ngModel)]="credentials.email"></ion-input>
             </div>
-            <div>
-                <ion-label>UserType(db)</ion-label><br/>
-                <ion-input type="text" name="type" [(ngModel)]="credentials.type"></ion-input>
-            </div>
 
             <div>
                 <ion-label>User Type</ion-label> <br/>
-                <ion-select placeholder="Select One">
-                    <ion-select-option value="a">Customer</ion-select-option>
-                    <ion-select-option value="b">Dealer</ion-select-option>
+                <ion-select placeholder="Select One" [(ngModel)]="credentials.type" type="text" name="type">
+                    <ion-select-option value="Customer">Customer</ion-select-option>
+                    <ion-select-option value="Dealer">Dealer</ion-select-option>
                 </ion-select>
             </div>
+
 
             <ion-button color="white" (click)="gotoDash()" style="color: rgb(6, 6, 117);">Skip</ion-button>
             <ion-button type="submit" color="primary">Let's Start</ion-button>

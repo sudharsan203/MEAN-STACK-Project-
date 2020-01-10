@@ -13,9 +13,9 @@ export class HomePage {
   credentials : TokenPayload = {
     _id:'',
     first_name:'',
-    last_name:'',
+    phone: undefined ,
     email:'',
-    password:'',
+    // password:'',
     type:''
   }
     constructor(public toastController: ToastController,private route:Router,

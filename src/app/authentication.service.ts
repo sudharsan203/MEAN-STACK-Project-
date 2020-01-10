@@ -9,9 +9,9 @@ import {Router} from '@angular/router'
 export interface  UserDetails{
     _id: string
     first_name : string
-    last_name : string
+    phone : number
     email : string
-    password : string
+//    password : string
     type : string
     exp : number
     iat : number
@@ -24,9 +24,9 @@ interface TokenResponse {
 export interface TokenPayload {
     _id : string
     first_name : string
-    last_name : string
+    phone : number
     email : string
-    password : string
+//    password : string
     type : string
 
 }
@@ -34,7 +34,7 @@ export interface TokenPayload {
 @Injectable()
 export class AuthenticationService {
     private token : string
-    baseUrl = "http://localhost:3000/"
+    baseUrl = "http://localhost:3001/"
     constructor(private http:HttpClient,private router:Router){}
     
     private saveToken(token: string): void{
@@ -61,7 +61,7 @@ export class AuthenticationService {
     }
 
     public register(user: TokenPayload): Observable<any>{
-        const base = this.http.post(this.baseUrl + 'users/register',user)
+        const base = this.http.post(this.baseUrl + 'post',user)
 
         const request = base.pipe(
             map((data: TokenResponse)=>{

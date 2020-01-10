@@ -11,9 +11,9 @@ app.use(cors())
 // schema used for data validation for our todo document
 const schema = Joi.object().keys({
     first_name: Joi.string().required(),
-    last_name: Joi.string().required(),
+    phone: Joi.string().required(),
     email: Joi.string().required(),
-    password: Joi.string().required(),
+    // password: Joi.string().required(),
     type: Joi.string().required(),
 
 });
@@ -55,9 +55,9 @@ app.post('/post', (req, res) => {
 
     const userInput = {
         first_name: req.body.first_name,
-        last_name: req.body.last_name,
+        phone: req.body.phone,
         email: req.body.email,
-        password: req.body.password,
+        // password: req.body.password,
         type: req.body.type
     }
 
