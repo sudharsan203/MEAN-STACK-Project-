@@ -1,33 +1,54 @@
 <ion-header>
-    <ion-toolbar>
-        <ion-buttons slot="start">
-            <ion-back-button defaultHref="dashboard"></ion-back-button>
-        </ion-buttons>
-        <ion-title><img src="assets/top.PNG"></ion-title>
+    <div *ngIf="!showSearchBar">
+        <ion-toolbar>
+            <ion-buttons slot="start">
+                <ion-back-button defaultHref="products"></ion-back-button>
+            </ion-buttons>
+            <ion-title><img src="assets/top.PNG"></ion-title>
 
-        <ion-button slot="end" (click)="onclick($event)" fill="clear">
-            <ion-icon slot="icon-only" size="large" name="search"></ion-icon>
-        </ion-button>
-        <ion-searchbar *ngIf="showSearchBar" (ionChange)="getItems($event)" (ionFocus)="getItems($event)" (ionInput)="getItems($event)">
-        </ion-searchbar>
+            <ion-button slot="end" (click)="onclick($event)" fill="clear">
+                <ion-icon slot="icon-only" size="large" name="search"></ion-icon>
+            </ion-button>
+            <ion-searchbar *ngIf="showSearchBar" (ionChange)="getItems($event)" (ionFocus)="getItems($event)" (ionInput)="getItems($event)">
+            </ion-searchbar>
 
-    </ion-toolbar>
+        </ion-toolbar>
+    </div>
+    <div *ngIf="showSearchBar">
+        <ion-toolbar>
+            <ion-buttons slot="start">
+                <ion-back-button defaultHref="products"></ion-back-button>
+            </ion-buttons>
+            <ion-searchbar *ngIf="showSearchBar" (ionChange)="getItems($event)" (ionFocus)="getItems($event)" (ionInput)="getItems($event)">
+            </ion-searchbar>
+
+        </ion-toolbar>
+
+    </div>
 </ion-header>
 
 <ion-content>
 
     <p><b>All Products</b></p>
     <div *ngIf="showSearchBar">
+
         <ion-card [routerLink]="['/productDetail',item.p_name]" *ngFor="let item of searchproduct">
             <h6>{{item.p_name}}</h6>
             <p>KB Part No : {{item.p_kb_part_no}}</p>
         </ion-card>
+
     </div>
+
+
+
     <div *ngIf="!showSearchBar">
+
+
         <ion-card [routerLink]="['/productDetail',product.p_name]" *ngFor="let product of products">
             <h6>{{product.p_name}}</h6>
             <p>KB Part No : {{product.p_kb_part_no}}</p>
         </ion-card>
+
     </div>
 </ion-content>
 
