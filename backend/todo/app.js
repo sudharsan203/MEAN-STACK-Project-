@@ -57,7 +57,7 @@ app.post('/post', (req, res) => {
         first_name: req.body.first_name,
         phone: req.body.phone,
         email: req.body.email,
-        // password: req.body.password,
+        password: req.body.password,
         type: req.body.type
     }
 
@@ -345,6 +345,21 @@ app.use((err, req, res, next) => {
 
     });
 })
+
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "YOUR-DOMAIN");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    req.header('Access-Controll-Allow-Orgin', '*');
+    req.header(
+        'Access-Controll-Allow-Headers',
+        'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+    );
+    if (req.method === 'OPTIONS') {
+        res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
+        return res.status(200).json({});
+    }
+    next();
+});
 
 
 db.connect((err) => {

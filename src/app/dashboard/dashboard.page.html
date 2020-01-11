@@ -13,10 +13,10 @@
             <img src="assets/slide1.jpg">
         </ion-slide>
         <ion-slide>
-            <img src="assets/slide3.jpg">
+            <img src="assets/knor2.jpg">
         </ion-slide>
         <ion-slide>
-            <img src="assets/v2.jpg">
+            <img src="assets/knor1.jpg">
         </ion-slide>
     </ion-slides>
 
@@ -152,12 +152,44 @@
     </ion-card>
 
 
+    <div class="head2">
+        <p>
+            <b slot="start">Favourite Items
+            <ion-button fill="outline" slot="end" style="padding: 1px 12px 0px 0px" class="ion-float-right"  routerLink="/all-products">Show All</ion-button></b>
+        </p>
 
-    <p>
-        <b slot="start">Favourite Items
-        <ion-button fill="outline" slot="end" style="padding: 1px 12px 0px 0px" class="ion-float-right"  routerLink="/all-products">Show All</ion-button></b>
-    </p>
-    <div class="horizontal-cards">
+        <div class="items">
+            <ion-grid>
+                <ion-row>
+                    <ion-slides>
+                        <ion-slide>
+                            <ion-col size=6>
+                                <ion-card (click)="gotoAllProducts()">
+                                    <img src="assets/air.PNG">
+                                    <p class="name">Air Compressor</p>
+                                    <p class="price">$999</p>
+                                </ion-card>
+                            </ion-col>
+                            <ion-col size=6>
+                                <ion-card (click)="gotoAllProducts()">
+                                    <img src="assets/dryer.jpg">
+                                    <p class="name">Air Dryer</p>
+                                    <p class="price">$1299</p>
+                                </ion-card>
+                            </ion-col>
+                        </ion-slide>
+                    </ion-slides>
+                </ion-row>
+            </ion-grid>
+        </div>
+
+    </div>
+
+
+
+
+
+    <!-- <div class="horizontal-cards">
         <ion-card (click)="gotoAllProducts()">
             <ion-card-header>
                 <img src="assets/air.PNG">
@@ -176,7 +208,7 @@
 
         </ion-card>
 
-    </div>
+    </div> -->
 
 
     <p>

@@ -5,7 +5,7 @@ import { resolve } from 'url';
   providedIn: 'root'
 })
 export class ServiceService {
-  apiurl='http://localhost:3001';
+  apiurl='http://10.192.33.227:3001';
   constructor(public http:HttpClient) {
     
    }
