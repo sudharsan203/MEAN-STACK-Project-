@@ -34,7 +34,7 @@ export interface TokenPayload {
 @Injectable()
 export class AuthenticationService {
     private token : string
-    baseUrl = "http://localhost:3001/"
+    baseUrl = "http://10.192.33.227:3001/"
     constructor(private http:HttpClient,private router:Router){}
     
     private saveToken(token: string): void{
