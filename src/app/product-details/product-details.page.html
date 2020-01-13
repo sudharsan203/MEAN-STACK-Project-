@@ -29,7 +29,7 @@
                             <p>Vehicle Model: {{product.v_name}}</p>
                             <p>KB Part No: {{product.p_kb_part_no}}</p>
                             <p>AM Part No: {{product.p_am_part_no}}</p>
-                            <p>OEM Part No: {{product.p_kb_part_no}}</p>
+                            <p>OEM Part No: {{product.p_oem_part_no}}</p>
                         </div>
                     </div>
                 </ion-row>
@@ -42,7 +42,14 @@
                             <p><b>Function:</b> <br/>{{product.p_function}}</p>
                         </ion-row>
                         <ion-row>
-                            <p><b>Features:</b> <br/>{{product.p_feature}}</p>
+                            <section>
+                                <p><b>Features :</b></p>
+                                <ul class="my-nav">
+                                    <li>{{product.p_feature}}</li>
+
+                                </ul>
+                            </section>
+
                         </ion-row>
                     </div>
                 </ion-row>
@@ -70,9 +77,7 @@
         </ion-card>
 
     </ion-grid>
-    <div class="data">
-        {{nodata}}
-    </div>
+
     <br/><br/>
     <button class="button button-full customBtn">
     Enquire

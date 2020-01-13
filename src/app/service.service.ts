@@ -5,7 +5,7 @@ import { resolve } from 'url';
   providedIn: 'root'
 })
 export class ServiceService {
-  apiurl='http://10.192.33.227:3001';
+  apiurl='https://knorr.herokuapp.com';
   constructor(public http:HttpClient) {
     
    }
