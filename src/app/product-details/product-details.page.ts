@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ServiceService} from '../service.service';
 import { NavController, ToastController  } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
+import { LoadingServiceService } from '../loading-service.service';
 
 @Component({
   selector: 'app-product-details',
@@ -11,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductDetailsPage implements OnInit {
   products:any;
   public nodata:string = null
-  constructor(public toastController: ToastController,public navCtrl: NavController ,public router:ActivatedRoute
+  constructor(public loading: LoadingServiceService,public toastController: ToastController,public navCtrl: NavController ,public router:ActivatedRoute
     ,public restProvider: ServiceService) {
     //this.getProductDetails();
    }
@@ -25,6 +26,8 @@ export class ProductDetailsPage implements OnInit {
   }
 
    ngOnInit() {
+    this.loading.present();
+    
     this.router.paramMap.subscribe(paramMap => {
       if(!paramMap.has('p_name')){
         console.log("Didnot received p_name")
@@ -39,6 +42,7 @@ export class ProductDetailsPage implements OnInit {
         {
           this.presentToast()
           this.nodata = "No Data Found"
+          this.loading.dismiss();
         }
         else{
           console.log(this.products);

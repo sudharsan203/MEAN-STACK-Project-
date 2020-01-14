@@ -1,14 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { resolve } from 'url';
+import { LoadingController } from '@ionic/angular';
 @Injectable({
   providedIn: 'root'
 })
+
+  
 export class ServiceService {
+  isLoading = false;
   apiurl='https://knorr.herokuapp.com';
   constructor(public http:HttpClient) {
     
    }
+
+ 
    getSearch(name:String)
    {
     return new Promise(resolve=>{

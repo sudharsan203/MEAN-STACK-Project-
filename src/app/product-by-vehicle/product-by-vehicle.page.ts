@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { NavController, ToastController } from '@ionic/angular';
 import { ServiceService } from '../service.service';
 import { empty } from 'Ionic_TPL/node_modules/rxjs';
+import { LoadingServiceService } from '../loading-service.service';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class ProductByVehiclePage implements OnInit {
   products:any;
   vehicle:any;
   public nodata : string = null;
-  constructor(public toastController: ToastController,private route: Router,public navCtrl: NavController, public restProvider: ServiceService,public router:ActivatedRoute) { 
+  constructor(public loading: LoadingServiceService,public toastController: ToastController,private route: Router,public navCtrl: NavController, public restProvider: ServiceService,public router:ActivatedRoute) { 
    // this.getProductByVehicle();
   }
 
@@ -28,6 +29,7 @@ export class ProductByVehiclePage implements OnInit {
   }
 
   ngOnInit() {
+    this.loading.present();
     this.router.paramMap.subscribe(paramMap => {
       if(!paramMap.has('v_name')){
         return;
@@ -41,6 +43,7 @@ export class ProductByVehiclePage implements OnInit {
         if(this.products.length == 0){
           this.presentToast()
           this.nodata = "No Data Found"
+          this.loading.dismiss()
         }
         else{
         console.log(this.products);

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {ServiceService} from '../service.service';
 import { NavController } from '@ionic/angular';
+import { LoadingServiceService } from '../loading-service.service';
 
 @Component({
   selector: 'app-company',
@@ -10,11 +11,12 @@ import { NavController } from '@ionic/angular';
 })
 export class CompanyPage implements OnInit {
   company:any;
-  constructor(private route: Router,public navCtrl: NavController, public restProvider: ServiceService) { 
+  constructor(public loading:LoadingServiceService,private route: Router,public navCtrl: NavController, public restProvider: ServiceService) { 
     this.getCompany();
   }
 
   ngOnInit() {
+    this.loading.present();
   }
   gotoVehicle()
   {
@@ -25,6 +27,7 @@ export class CompanyPage implements OnInit {
      this.restProvider.getCompany()
      .then(data=>{
        this.company=data;
+       this.loading.dismiss();
        console.log(this.company);
      });
   }

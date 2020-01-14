@@ -4,6 +4,7 @@ import { NavController } from '@ionic/angular';
 import { ServiceService } from '../service.service';
 //import 'rxjs/add/operator/map';
 import {AccordionComponent} from '../accordion/accordion.component' 
+import { LoadingServiceService } from '../loading-service.service';
 
 
 @Component({
@@ -21,11 +22,12 @@ export class PricelistAllProductPage implements OnInit {
   @ViewChild('cc', {static: true}) cardContent: any;
   @Input ('title') title:string;
 
-    constructor(private route: Router, public restProvider: ServiceService) {
+    constructor(public loading: LoadingServiceService,private route: Router, public restProvider: ServiceService) {
       
      }
 
   ngOnInit() {
+    this.loading.present();
      this.getProductTypes();
   }
     
@@ -33,8 +35,8 @@ export class PricelistAllProductPage implements OnInit {
      {
        this.restProvider.getProductType()
          .then(data=>{
-           this.product_types=data; 
-
+          this.product_types=data; 
+          this.loading.dismiss();
          });    
 
      }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {ServiceService} from '../service.service';
 import { NavController } from '@ionic/angular';
+import { LoadingServiceService } from '../loading-service.service';
 
 @Component({
   selector: 'app-all-products',
@@ -16,11 +17,22 @@ export class AllProductsPage implements OnInit {
 
 
   public showSearchBar = false;
-  constructor(private route: Router,public navCtrl: NavController, public restProvider: ServiceService) {
-    this.getAllProducts();
+
+  constructor(public loading: LoadingServiceService,private route: Router,public navCtrl: NavController, public restProvider: ServiceService) {
+    
    }
 
   ngOnInit() {
+    this.loading.present();
+    this.restProvider.getProductsAlltypes()
+    .then(data=>{
+     this.products=data;
+     this.loading.dismiss();
+    } ,error => {
+        console.log(error);
+        this.loading.dismiss();
+      })
+    
     this.restProvider.getProductsAlltypes().then(data => {
       this.searchitem = data; })
   }
@@ -51,13 +63,7 @@ export class AllProductsPage implements OnInit {
     this.showSearchBar = !this.showSearchBar;
 
   }
-  getAllProducts()
-  {
-     this.restProvider.getProductsAlltypes()
-     .then(data=>{
-       this.products=data;
-       console.log(this.products);
-     });
+  
   }
 
-}
+

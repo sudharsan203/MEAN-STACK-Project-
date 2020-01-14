@@ -30,23 +30,7 @@ export class HomePage {
         toast.present();
       }
 
-      async presentToastWithOptions() {
-        const toast = await this.toastController.create({
-          header: 'No Data',
-          message: 'Click to Close',
-          position: 'middle',
-          buttons: [
-            {
-              text: 'Done',
-              role: 'cancel',
-              handler: () => {
-                console.log('Cancel clicked');
-              }
-            }
-          ]
-        });
-        toast.present();
-      }
+    
 
     dashboard(){
     // let key = 'khash elcoe';
