@@ -10,7 +10,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms'
 import {AuthenticationService} from './authentication.service'
 import { HomePageModule } from './home/home.module';
-import { StorageServiceModule} from 'angular-webstorage-service';
+
 import { LoadingServiceService } from './loading-service.service';
 import { HomePage } from './home/home.page';
 @NgModule({
@@ -20,7 +20,7 @@ import { HomePage } from './home/home.page';
  
 
 
-  imports: [BrowserModule,StorageServiceModule,BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule,FormsModule], 
+  imports: [BrowserModule,BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule,FormsModule], 
   providers: [
     AuthenticationService,
     StatusBar,

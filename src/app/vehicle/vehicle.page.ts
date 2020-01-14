@@ -12,12 +12,17 @@ import { LoadingServiceService } from '../loading-service.service';
 export class VehiclePage implements OnInit {
   vehicles:any;
   company:any;
+  
   public nodata:string = null
+  duty: string;
   constructor(public loading:LoadingServiceService,public toastController: ToastController,private route: Router,public navCtrl: NavController, public restProvider: ServiceService,public router:ActivatedRoute) {
     //this.getVehicle(name);
-   
-   }
+    this.duty = "light";
 
+   }
+  Vduty(string){
+    this.duty = string;
+  }
   async presentToast() {
     const toast = await this.toastController.create({
       message: ' No Data to display ',

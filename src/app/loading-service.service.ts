@@ -10,7 +10,8 @@ export class LoadingServiceService {
   async present() {
     
     return await this.loadingController.create({
-     
+     spinner: 'bubbles'
+   
     }).then(a => {
       a.present().then(() => {
         console.log('presented');
