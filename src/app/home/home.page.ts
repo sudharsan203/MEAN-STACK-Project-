@@ -44,7 +44,7 @@ export class HomePage {
 
     this.auth.register(this.credentials).subscribe(
        () =>{
-         this.route.navigateByUrl('/dashboard')
+         this.route.navigate(['/dashboard',this.credentials.first_name])
          this.presentToast()
        },
        err =>{

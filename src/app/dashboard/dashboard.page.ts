@@ -16,6 +16,7 @@ export class DashboardPage implements OnInit {
   searchcomp = [];
   searchitem:any;
   searchcompany:any;
+  first_name:any;
  
   ;
   constructor(private route: Router,public navCtrl: NavController, public restProvider: ServiceService, public renderer: Renderer,public router:ActivatedRoute) {
@@ -26,10 +27,10 @@ export class DashboardPage implements OnInit {
 
   ngOnInit() {
    // let loggedData = JSON.parse(localStorage.getItem('loggedInfo'));
-    // this.router.paramMap.subscribe(paramMap => {
-    //   const first_name = paramMap.get("first_name");
-    //   console.log("first_name")
-    // })
+    this.router.paramMap.subscribe(paramMap => {
+     this.first_name = paramMap.get("first_name");
+      console.log("first_name")
+    })
   //  console.log(localStorage.getItem('key'))
     
   //  let item = JSON.parse(localStorage.getItem('key'));
