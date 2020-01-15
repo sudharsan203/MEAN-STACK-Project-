@@ -1,8 +1,8 @@
 <ion-card>
     <ion-card-header (click)="toggleAccordion()" class="card-header">
         {{title}}
-        <ion-icon name="arrow-up" *ngIf="!accordionExapanded"></ion-icon>
-        <ion-icon name="arrow-down" *ngIf="accordionExapanded"></ion-icon>
+        <ion-icon float-right name="arrow-up" *ngIf="!accordionExapanded"></ion-icon>
+        <ion-icon float-right name="arrow-down" *ngIf="accordionExapanded"></ion-icon>
     </ion-card-header>
     <ion-card-content #cc class="card-content">
 
