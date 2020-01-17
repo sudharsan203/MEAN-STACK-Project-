@@ -13,7 +13,7 @@ const state = {
 
 const connect = (cb) => {
     // if state is not NULL
-    // Means we have connection already, call our CB
+    // Means we have connection already, call our cb
     if (state.db)
         cb();
     else {
@@ -32,7 +32,7 @@ const connect = (cb) => {
     }
 }
 
-// returns OBJECTID object used to 
+// returns OBJECTID object 
 const getPrimaryKey = (_id) => {
     return ObjectID(_id);
 }
