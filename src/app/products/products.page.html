@@ -1,7 +1,7 @@
 <ion-header>
     <ion-toolbar>
         <ion-buttons slot="start">
-            <ion-back-button defaultHref="dashboard"></ion-back-button>
+            <ion-back-button defaultHref="/dashboard"></ion-back-button>
         </ion-buttons>
         <ion-title><img src="assets/top.PNG"></ion-title>
     </ion-toolbar>
@@ -10,13 +10,13 @@
 <ion-content>
     <p><b>Products</b></p>
     <ion-card>
-        <ion-item href="/all-products" class="activated">
+        <ion-item (click)="goToAllProduct()" class="activated">
             <ion-icon name="ios-arrow-forward" slot="end"></ion-icon>
             <ion-label>All Products</ion-label>
         </ion-item>
     </ion-card>
     <ion-card>
-        <ion-item href="/company" class="activated">
+        <ion-item (click)="gotoCompany()" class="activated">
             <ion-icon name="ios-arrow-forward" slot="end"></ion-icon>
             <ion-label>Vehicle Make</ion-label>
         </ion-item>

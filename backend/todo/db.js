@@ -4,6 +4,8 @@ const ObjectID = require('mongodb').ObjectID;
 const dbname = "test";
 // location of where our mongoDB database is located
 const url = "mongodb+srv://khash:khash%40123@cluster0-dohjg.gcp.mongodb.net/test?authSource=admin&replicaSet=Cluster0-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true";
+//const url = "10.192.33.227/";
+
 // Options for mongoDB
 const mongoOptions = { useNewUrlParser: true };
 

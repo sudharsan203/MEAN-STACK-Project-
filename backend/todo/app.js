@@ -67,97 +67,55 @@ app.post('/post', (req, res) => {
 });
 
 
+// var a = '/products';
+var b = '/vehicles';
+var c = '/companies';
+var d = '/producttypes';
+var e = '/productbytypes';
+var f = '/product';
 
-// read
-app.get('/vehicles', (req, res) => {
 
-    const collection = "vehicles";
-    db.getDB().collection(collection).find({}, { projection: { _id: 0 } }).toArray((err, documents) => {
-        if (err)
-            console.log(err);
-        else {
+// if (a) {
+//     collection = "products"
+//     call(a, collection)
+// }
+if (b) {
+    collection = "vehicles"
+    call(b, collection)
+}
+if (c) {
+    collection = "companies"
+    call(c, collection)
+}
+if (d) {
+    collection = "types"
+    call(d, collection)
+}
+if (e) {
+    collection = "producttypes"
+    call(e, collection)
+}
+if (f) {
+    collection = "products"
+    call(f, collection)
+}
+var t;
 
-            res.json(documents);
-        }
+function call(t, collection) {
+    // read
+    app.get(t, (req, res) => {
+
+        //   const collection = "products";
+        db.getDB().collection(collection).find({}).toArray((err, documents) => {
+            if (err)
+                console.log(err);
+            else {
+
+                res.json(documents);
+            }
+        });
     });
-}); // read
-app.get('/companies', (req, res) => {
-
-    const collection = "companies";
-    db.getDB().collection(collection).find({}, { projection: { _id: 0 } }).toArray((err, documents) => {
-        if (err)
-            console.log(err);
-        else {
-
-            res.json(documents);
-        }
-    });
-});
-app.get('/products', (req, res) => {
-
-    const collection = "products";
-    db.getDB().collection(collection).find({}, { projection: { _id: 0 } }).toArray((err, documents) => {
-        if (err)
-            console.log(err);
-        else {
-
-            res.json(documents);
-        }
-    });
-});
-app.get('/producttypes', (req, res) => {
-
-    const collection = "types";
-    db.getDB().collection(collection).find({}, { projection: { _id: 0 } }).toArray((err, documents) => {
-        if (err)
-            console.log(err);
-        else {
-
-            res.json(documents);
-        }
-    });
-});
-
-app.get('/productbytypes', (req, res) => {
-
-    const collection = "producttypes";
-    db.getDB().collection(collection).find({}, { projection: { _id: 0 } }).toArray((err, documents) => {
-        if (err)
-            console.log(err);
-        else {
-
-            res.json(documents);
-        }
-    });
-});
-
-app.get('/product', (req, res) => {
-
-    const collection = "products";
-    db.getDB().collection(collection).find({}, { projection: { _id: 0 } }).toArray((err, documents) => {
-        if (err)
-            console.log(err);
-        else {
-
-            res.json(documents);
-        }
-    });
-});
-////////////////////////////////////////////
-// app.get('/product_init',(req,res)=>{
-//     // get all Todo documents within our todo collection
-//     // send back to user as json
-//     const collection = "product_init";
-//     db.getDB().collection(collection).aggregate([{$match:{"p_name":"Air Compressor"}},{ $lookup: { from: "products", localField:"p_name", foreignField:"p_name", as:"details"}}]).toArray((err,documents)=>{
-//         if(err)
-//             console.log(err);
-//         else{
-//     //        db.getDB().collection(collection).find({},{_id:0});
-//             res.json(documents);
-//         //    console.log(JSON.stringify(res))
-//         }
-//     });
-// });
+}
 
 app.get('/product/:p_name', (req, res) => {
 
@@ -302,7 +260,7 @@ db.connect((err) => {
     // And listen for Request
     else {
         app.listen(process.env.PORT || 5000, () => {
-            console.log('connected to database, app listening on port 3001');
+            console.log('connected to database, app listening on port 5000');
 
         });
     }

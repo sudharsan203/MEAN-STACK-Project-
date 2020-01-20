@@ -12,7 +12,7 @@ export class ProductsPage implements OnInit {
 
   ngOnInit() {
   }
-  gotoAllproducts()
+  goToAllProduct()
   {
     this.route.navigate(['/all-products']);
   }
@@ -20,4 +20,5 @@ export class ProductsPage implements OnInit {
   {
     this.route.navigate(['/company']);
   }
+
 }

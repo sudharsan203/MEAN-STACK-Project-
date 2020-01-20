@@ -63,7 +63,7 @@ export class AllProductsPage implements OnInit {
     this.showSearchBar = !this.showSearchBar;
 
   }
-  
+ 
   }
 
 

@@ -19,6 +19,10 @@ export class PriceListPage implements OnInit {
   {
     this.route.navigate(['/pricelist-all-product']);
   }
+  gotoCompany()
+  {
+    this.route.navigate(['/company']);
+  }
   getAllProducts()
   {
      this.restProvider.getAllProducts()

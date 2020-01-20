@@ -13,6 +13,9 @@ import { HomePageModule } from './home/home.module';
 
 import { LoadingServiceService } from './loading-service.service';
 import { HomePage } from './home/home.page';
+import { DashboardPage } from 'Ionic_TPL/src/app/dashboard/dashboard.page';
+import { FilterPipe } from './filter.pipe';
+
 @NgModule({
   
   declarations: [AppComponent],
@@ -34,13 +37,14 @@ import { HomePage } from './home/home.page';
 
 @NgModule({
   declarations: [
+  
     AppComponent, 
     HomePage],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(),
      AppRoutingModule,
      FormsModule,
-     HttpClientModule    
+     HttpClientModule  
     ],
   providers: [
     LoadingServiceService,

@@ -46,6 +46,7 @@ export class ProductDetailsPage implements OnInit {
         }
         else{
           console.log(this.products);
+          this.loading.dismiss();
         }
       });
      

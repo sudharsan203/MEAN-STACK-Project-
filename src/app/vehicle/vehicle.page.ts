@@ -56,6 +56,7 @@ export class VehiclePage implements OnInit {
           this.loading.dismiss()
         }else{
         console.log(this.vehicles)
+        this.loading.dismiss()
         }
       })
     });

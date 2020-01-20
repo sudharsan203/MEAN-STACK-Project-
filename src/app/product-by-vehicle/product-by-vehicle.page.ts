@@ -47,6 +47,7 @@ export class ProductByVehiclePage implements OnInit {
         }
         else{
         console.log(this.products);
+        this.loading.dismiss()
         }
       });
 
