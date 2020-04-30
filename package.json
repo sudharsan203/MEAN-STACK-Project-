@@ -28,7 +28,7 @@
     "cordova-android": "8.1.0",
     "cordova-browser": "6.0.0",
     "core-js": "^2.5.4",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "native-run": "^0.3.0",
     "ngx-webstorage-service": "^4.1.0",
     "rxjs": "~6.5.1",
